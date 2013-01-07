@@ -118,7 +118,7 @@ string CCircle::GetCreator()
 	center.GetXY(centerX, centerY);
 
 	stringstream intToStr;
-	intToStr << centerX << " " << centerY << " " << rayon << endl;
+	intToStr << centerX << " " << centerY << " " << rayon;
 
 	cmd += "C ";
 	cmd += intToStr.str();

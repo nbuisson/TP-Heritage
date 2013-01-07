@@ -47,7 +47,7 @@ bool CRectangle::Move(int dX, int dY)
 	{
 	    cancelMove = p2.Move(-dX, -dY);
 	}
-	if ((not ok2) && (ok1))
+	else if ((not ok2) && (ok1))
 	{
 	    cancelMove = p1.Move(-dX, -dY);
 	}
@@ -84,7 +84,7 @@ string CRectangle::GetCreator()
 	p2.GetXY(x2, y2);
 
 	cmd += "R ";
-	intToStr << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
+	intToStr << x1 << " " << y1 << " " << x2 << " " << y2;
 	cmd += intToStr.str();
 
 	return cmd;

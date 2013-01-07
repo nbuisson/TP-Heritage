@@ -22,7 +22,7 @@ using namespace std;
 int main()
 {
     int intLim = numeric_limits<int>::min();
-    cout << intLim << endl;
+    //cout << intLim << endl;
 
 	/*
 	// Tests de CPoint
@@ -96,10 +96,27 @@ int main()
 	int iX2r = 4;
 	int iY2r = -8;
 
-	CRectangle* r1 = new CRectangle(iX1r, iY1r, iX2r, iY2r);
+	CFigure* r1 = new CRectangle(iX1r, iY1r, iX2r, iY2r);
 	string rectangleCreator = r1->GetCreator();
 	cout << rectangleCreator << endl;
 
+    r1->Select(4,-8,2,3);
+    bool selectR = r1->GetisSelected();
+    cout << "selectR : " << selectR << endl;
+
+    bool moveR = r1->Move(1,1);
+    cout << "moveR : " << moveR << endl;
+    cout << r1->GetCreator() << endl;
+
+    r1->Select(2,3,4,-8);
+    selectR = r1->GetisSelected();
+    cout << "selectR : " << selectR << endl;
+
+    moveR = r1->Move(intLim,intLim);
+    cout << "moveR : " << moveR << endl;
+    cout << r1->GetCreator() << endl;
+
+    /* BUG SUR LE MOVE : IL DEPLACE LE PREMIER POINT ALORS QU'IL NE DEVRAIT PAS !*/
 
     /*
 	//CSchema * mySchema = new CSchema ();
