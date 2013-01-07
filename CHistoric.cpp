@@ -14,7 +14,6 @@
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-//#include "stdafx.h"
 #include "CHistoric.h"
 #include <vector>
 using namespace std;

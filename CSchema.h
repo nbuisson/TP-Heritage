@@ -10,7 +10,6 @@
 #define CSCHEMA_H_
 
 //--------------------------------------------------- Interfaces utilisees
-//#include "stdafx.h"
 //#include "CFigure.h"
 #include "CHistoric.h"
 #include <vector>
