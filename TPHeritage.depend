@@ -1,0 +1,91 @@
+# depslib dependency file v1.0
+1357564816 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CCircle.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	"CCircle.h"
+	"CFigure.h"
+	"CPoint.h"
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CCircle.h
+	<string>
+	"CFigure.h"
+	"CPoint.h"
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CFigure.h
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CPoint.h
+
+1357564822 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CFigure.cpp
+	<iostream>
+	"CFigure.h"
+
+1357564825 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CHistoric.cpp
+	<iostream>
+	"CHistoric.h"
+	<vector>
+
+1357565615 /home/nicolas/Documents/IF/3IF/TPHeritage/CHistoric.h
+	<vector>
+	<string>
+
+1357564828 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CLine.cpp
+	<iostream>
+	<string>
+	<vector>
+	"CLine.h"
+	"CPolyLine.h"
+	"CFigure.h"
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CLine.h
+	<string>
+	<vector>
+	"CFigure.h"
+	"CPolyLine.h"
+	"CPoint.h"
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.h
+	<string>
+	<vector>
+	"CFigure.h"
+	"CPoint.h"
+
+1357564882 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.cpp
+	<iostream>
+	<string>
+	<vector>
+	"CPolyLine.h"
+	"CFigure.h"
+
+1357564885 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CRectangle.cpp
+	<iostream>
+	<string>
+	"CRectangle.h"
+	"CFigure.h"
+	"CPoint.h"
+
+1357564745 /home/nicolas/Documents/IF/3IF/TPHeritage/CRectangle.h
+	"CFigure.h"
+	"CPoint.h"
+
+1357565034 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CSchema.cpp
+	<iostream>
+	<string>
+	<sstream>
+	"CSchema.h"
+	"CHistoric.h"
+
+1357564892 /home/nicolas/Documents/IF/3IF/TPHeritage/CSchema.h
+	"CHistoric.h"
+	<vector>
+
+1357564745 source:/home/nicolas/Documents/IF/3IF/TPHeritage/TPHeritage.cpp
+	"CSchema.h"
+	<iostream>
+	<string>
+
+1357565034 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CPoint.cpp
+	<iostream>
+	<limits>
+	"CPoint.h"
+
