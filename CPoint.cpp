@@ -38,7 +38,13 @@ bool CPoint::Move(int dX, int dY)
 // Algorithme :
 // Trivial
 {
-	if ((x+dX > maxInt) || (x+dX < minInt) || (y+dY > maxInt) || (y+dY < minInt))
+
+    // On caste les x, dX, y et dY dans des double avant l'opération pour
+    // éviter l'overflow qui fait passer le résultat en négatif
+    double xdX = (double)x+(double)dX;
+    double ydY = (double)y+(double)dY;
+
+	if ((xdX > maxInt) || (xdX < minInt) || (ydY > maxInt) || (ydY < minInt))
 	{
 		return false;
 	}
@@ -46,6 +52,7 @@ bool CPoint::Move(int dX, int dY)
 	{
 		x += dX;
 		y += dY;
+
 		return true;
 	}
 } //----- Fin de Methode
@@ -72,12 +79,14 @@ bool CPoint::IsSelected(int x1, int y1, int x2, int y2)
 
 
 
-void CPoint::Distance(int aX, int aY, int& dX, int& dY)
+void CPoint::Distance(int aX, int aY, double& dX, double& dY)
 // Algorithme :
 // Trivial
 {
-	dX = aX+x;
-	dY = aY+y;
+    // Cast des int en double pour éviter le dépassement de capacité
+    // (si aX et aY sont de tailles limites)
+	dX = (double)aX+(double)x;
+	dY = (double)aY+(double)y;
 }
 
 

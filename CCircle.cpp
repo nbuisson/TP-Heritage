@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <limits>
 
 //------------------------------------------------------ Include personnel
 //#include "stdafx.h"
@@ -37,7 +38,39 @@ bool CCircle::Move(int dX, int dY)
 // Algorithme :
 //
 {
-	return center.Move(dX, dY);
+    int maxLim = numeric_limits<int>::max();
+    int minLim = numeric_limits<int>::min();
+
+    bool tempIsSelected = isSelected;   // Stockage de la valeur actuelle de isSelected
+
+    bool ok = center.Move(dX, dY);
+
+    // On vérifie si le cercle déplacé est compris dans le rectangle de l'aire de dessin
+    // via la fonction isSelected
+    Select(minLim, minLim, maxLim, maxLim);
+
+    //TODO : enlever la trace
+    cout << "isSelected : " << isSelected << " ; ok : " << ok << endl;
+    int tempX; int tempY; center.GetXY(tempX, tempY);
+    cout << "x : " << tempX << " ; y : " << tempY << endl;
+
+    if (isSelected && ok)
+    {
+        // Si le cercle est dans les limites, on rétablie isSelected à sa valeur d'origne
+        // et on renvoie "true"
+        isSelected = tempIsSelected;
+        return true;
+    }
+    else if ((not isSelected) && ok)
+    {
+        // Si le déplacement du centre est bon mais que le cercle n'est plus compris dans
+        // la zone de dessin, on annule le déplacement
+        center.Move(-dX, -dY);
+    }
+
+    // Remise de isSelected à sa valeur initiale et renvoie de "false" si déplacement impossible
+    isSelected = tempIsSelected;
+    return false;
 } //----- Fin de Methode
 
 
@@ -49,10 +82,10 @@ void CCircle::Select(int x1, int y1, int x2, int y2)
 	{
 		// Rectangle rX1, rY1; rX2, rY2 (défini par le coin supérieur gauche et inférieur droit)
 		// contenant le cercle
-		int rX1;
-		int rX2;
-		int rY1;
-		int rY2;
+		double rX1;
+		double rX2;
+		double rY1;
+		double rY2;
 		center.Distance(-rayon, rayon, rX1, rY1);
 		center.Distance(rayon, -rayon, rX2, rY2);
 
@@ -78,20 +111,17 @@ void CCircle::Select(int x1, int y1, int x2, int y2)
 
 string CCircle::GetCreator()
 {
+    string cmd;
+
 	int centerX;
 	int centerY;
 	center.GetXY(centerX, centerY);
 
-	stringstream sCenterX;
-	sCenterX<<centerX;
+	stringstream intToStr;
+	intToStr << centerX << " " << centerY << " " << rayon << endl;
 
-	stringstream sCenterY;
-	sCenterY<<centerY;
-
-	stringstream sRadius;
-	sRadius<<rayon;
-
-	string cmd = "C "+ sCenterX.str() + " "+ sCenterY.str() + " " + sRadius.str();
+	cmd += "C ";
+	cmd += intToStr.str();
 
 	return cmd;
 }

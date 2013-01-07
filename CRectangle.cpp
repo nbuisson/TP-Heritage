@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 
 //------------------------------------------------------ Include personnel
 //#include "stdafx.h"
@@ -39,6 +40,18 @@ bool CRectangle::Move(int dX, int dY)
 {
 	bool ok1 = p1.Move(dX, dY);
 	bool ok2 = p2.Move(dX, dY);
+	bool cancelMove;
+
+    // Annulation du déplacement d'un point si un seul bouge
+	if ((not ok1) && (ok2))
+	{
+	    cancelMove = p2.Move(-dX, -dY);
+	}
+	if ((not ok2) && (ok1))
+	{
+	    cancelMove = p1.Move(-dX, -dY);
+	}
+
 	return ok1 && ok2;
 } //----- Fin de Methode
 
@@ -59,20 +72,21 @@ string CRectangle::GetCreator()
 //
 {
 	string cmd;
+
 	int x1;
 	int y1;
 	int x2;
 	int y2;
+
+	stringstream intToStr;
+
 	p1.GetXY(x1, y1);
 	p2.GetXY(x2, y2);
+
 	cmd += "R ";
-	cmd += x1;
-	cmd += " ";
-	cmd += y1;
-	cmd += " ";
-	cmd += x2;
-	cmd += " ";
-	cmd += y2;
+	intToStr << x1 << " " << y1 << " " << x2 << " " << y2 << endl;
+	cmd += intToStr.str();
+
 	return cmd;
 } //----- Fin de Methode
 
