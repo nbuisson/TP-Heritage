@@ -21,7 +21,7 @@ using namespace std;
 
 int main()
 {
-    int intLim = numeric_limits<int>::max();
+    int intLim = numeric_limits<int>::min();
     cout << intLim << endl;
 
 	/*
@@ -81,7 +81,7 @@ int main()
     cout << "select : " << select << endl;
     cout << endl;
 
-    ok = c2->Move(intLim,intLim);
+    ok = c2->Move(intLim+4,intLim+4);
     cout << "c2 ok : " << ok << endl;
     cout << c2->GetCreator() << endl;
 
