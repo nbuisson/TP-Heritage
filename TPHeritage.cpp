@@ -48,7 +48,7 @@ int main()
 
 	delete p1;*/
 
-
+    /*
 	// Tests de CCircle
 
 	CCircle* c1 = new CCircle(0,0,4);
@@ -86,7 +86,7 @@ int main()
     cout << c2->GetCreator() << endl;
 
     delete c2;
-    delete c1;
+    delete c1;*/
 
 
 	// Tests de CRectangle
