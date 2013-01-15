@@ -21,7 +21,7 @@ using namespace std;
 
 int main()
 {
-    int intLim = numeric_limits<int>::min();
+    int intLim = numeric_limits<int>::max();
     //cout << intLim << endl;
 
     /*
@@ -97,7 +97,7 @@ int main()
 	int iX1r = 2;
 	int iY1r = 3;
 	int iX2r = 4;
-	int iY2r = -8;
+	int iY2r = -7;
 
 	CFigure* r1 = new CRectangle(iX1r, iY1r, iX2r, iY2r);
 	string rectangleCreator = r1->GetCreator();

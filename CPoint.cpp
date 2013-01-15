@@ -44,11 +44,6 @@ bool CPoint::Move(long dX, long dY)
     long xdX = (long)x+dX;
     long ydY = (long)y+dY;
 
-    // TODO : enlever la trace
-    cout << "Point.Move" << endl;
-    cout << "dX : " << dX << " ; dY : " << dY << "\n" << endl;
-    //
-
 	if ((xdX > maxInt) || (xdX < minInt) || (ydY > maxInt) || (ydY < minInt))
 	{
 		return false;
