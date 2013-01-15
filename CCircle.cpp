@@ -34,7 +34,7 @@ using namespace std;
 //{
 //} //----- Fin de Methode
 
-bool CCircle::Move(int dX, int dY)
+bool CCircle::Move(long dX, long dY)
 // Algorithme :
 //
 {

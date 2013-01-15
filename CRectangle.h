@@ -37,7 +37,7 @@ public:
     //
 
 
-	bool Move(int dX, int dY);
+	bool Move(long dX, long dY);
     // Mode d'emploi :
     //
     // Contrat :

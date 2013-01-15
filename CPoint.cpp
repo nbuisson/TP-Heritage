@@ -34,15 +34,20 @@ const int minInt = numeric_limits<int>::min();
 //} //----- Fin de Methode
 
 
-bool CPoint::Move(int dX, int dY)
+bool CPoint::Move(long dX, long dY)
 // Algorithme :
 // Trivial
 {
 
-    // On caste les x, dX, y et dY dans des long avant l'opération pour
+    // On caste les x et y dans des long avant l'opération pour
     // éviter l'overflow qui fait passer le résultat en négatif
-    long xdX = (long)x+(long)dX;
-    long ydY = (long)y+(long)dY;
+    long xdX = (long)x+dX;
+    long ydY = (long)y+dY;
+
+    // TODO : enlever la trace
+    cout << "Point.Move" << endl;
+    cout << "dX : " << dX << " ; dY : " << dY << "\n" << endl;
+    //
 
 	if ((xdX > maxInt) || (xdX < minInt) || (ydY > maxInt) || (ydY < minInt))
 	{

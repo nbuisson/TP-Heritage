@@ -24,7 +24,7 @@ int main()
     int intLim = numeric_limits<int>::min();
     //cout << intLim << endl;
 
-	/*
+    /*
 	// Tests de CPoint
 
 	int iX;
@@ -37,8 +37,11 @@ int main()
 	p1->GetXY(iX, iY);
 	cout << "x " << iX << " y " << iY << endl;
 
-	p1->Distance(2,2,iX,iY);
-	cout << "iX " << iX << " iY " << iY << endl;
+	long liX;
+	long liY;
+
+	p1->Distance(2,2,liX,liY);
+	cout << "liX " << liX << " liY " << liY << endl;
 
 	bool ok = p1->IsSelected(-1,-3,0,4);
 	cout << ok << endl;
@@ -55,23 +58,23 @@ int main()
 	string creator = c1->GetCreator();
 	cout << creator << endl;
 
-	bool ok = c1->Move(4,2);
-	cout << "ok : " << ok << endl;
+	bool ok2 = c1->Move(4,2);
+	cout << "ok2 : " << ok2 << endl;
 	creator = c1->GetCreator();
 	cout << creator << endl;
 
-	ok = c1->Move(-65,12);
-	cout << "ok : " << ok << endl;
+	ok2 = c1->Move(-65,12);
+	cout << "ok2 : " << ok2 << endl;
 	creator = c1->GetCreator();
 	cout << creator << endl;
 
-    ok = c1->Move(intLim, intLim);
-    cout << "ok : " << ok << endl;
+    ok2 = c1->Move(intLim, intLim);
+    cout << "ok2 : " << ok2 << endl;
     creator = c1->GetCreator();
     cout << creator << endl;
 
-    ok = c1->Move(-intLim, 2);
-    cout << "ok : " << ok << endl;
+    ok2 = c1->Move(-intLim, 2);
+    cout << "ok2 : " << ok2 << endl;
     creator = c1->GetCreator();
     cout << creator << endl;
 
@@ -81,8 +84,8 @@ int main()
     cout << "select : " << select << endl;
     cout << endl;
 
-    ok = c2->Move(intLim+4,intLim+4);
-    cout << "c2 ok : " << ok << endl;
+    ok2 = c2->Move(intLim+4,intLim+4);
+    cout << "c2 ok2 : " << ok2 << endl;
     cout << c2->GetCreator() << endl;
 
     delete c2;
@@ -116,7 +119,6 @@ int main()
     cout << "moveR : " << moveR << endl;
     cout << r1->GetCreator() << "\n" << endl;
 
-    /* BUG SUR LE MOVE : IL DEPLACE LE PREMIER POINT ALORS QU'IL NE DEVRAIT PAS !*/
 
     /*
 	//CSchema * mySchema = new CSchema ();

@@ -34,7 +34,7 @@ using namespace std;
 //} //----- Fin de Methode
 
 
-bool CRectangle::Move(int dX, int dY)
+bool CRectangle::Move(long dX, long dY)
 // Algorithme :
 // Trivial
 {
@@ -42,14 +42,30 @@ bool CRectangle::Move(int dX, int dY)
 	bool ok2 = p2.Move(dX, dY);
 	bool cancelMove;
 
+	// TODO : enlever la trace
+	cout << "dX : " << dX << " ; dY : " << dY << "\n" << endl;
+	//
+
     // Annulation du déplacement d'un point si un seul bouge
 	if ((not ok1) && (ok2))
 	{
+	    // TODO : enlever la trace
+	    cout << "CancelMove p2" << endl;
+	    //
+
 	    cancelMove = p2.Move(-dX, -dY);
 	}
 	else if ((not ok2) && (ok1))
 	{
-	    cancelMove = p1.Move(-dX, -dY);
+
+	    // TODO : enlever la trace
+	    cout << "CancelMove p1" << endl;
+	    long dXP = dX;
+	    long dYP = dY;
+	    cout << "-dX : " << -dXP << " ; -dY : " << -dYP << "\n" << endl;
+	    //
+
+	    cancelMove = p1.Move(-dXP, -dYP);
 	}
 
 	return ok1 && ok2;
