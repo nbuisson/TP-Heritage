@@ -49,8 +49,6 @@ bool CCircle::Move(int dX, int dY)
     // via la fonction isSelected
     Select(minLim, minLim, maxLim, maxLim);
 
-    //TODO : enlever la trace
-    cout << "isSelected : " << isSelected << " ; ok : " << ok << endl;
     int tempX; int tempY; center.GetXY(tempX, tempY);
     cout << "x : " << tempX << " ; y : " << tempY << endl;
 

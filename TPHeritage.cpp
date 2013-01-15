@@ -98,15 +98,15 @@ int main()
 
 	CFigure* r1 = new CRectangle(iX1r, iY1r, iX2r, iY2r);
 	string rectangleCreator = r1->GetCreator();
-	cout << rectangleCreator << endl;
+	cout << rectangleCreator << "\n" << endl;
 
     r1->Select(4,-8,2,3);
     bool selectR = r1->GetisSelected();
-    cout << "selectR : " << selectR << endl;
+    //cout << "selectR : " << selectR << endl;
 
     bool moveR = r1->Move(1,1);
-    cout << "moveR : " << moveR << endl;
-    cout << r1->GetCreator() << endl;
+    //cout << "moveR : " << moveR << endl;
+    cout << r1->GetCreator() << "\n" << endl;
 
     r1->Select(2,3,4,-8);
     selectR = r1->GetisSelected();
@@ -114,7 +114,7 @@ int main()
 
     moveR = r1->Move(intLim,intLim);
     cout << "moveR : " << moveR << endl;
-    cout << r1->GetCreator() << endl;
+    cout << r1->GetCreator() << "\n" << endl;
 
     /* BUG SUR LE MOVE : IL DEPLACE LE PREMIER POINT ALORS QU'IL NE DEVRAIT PAS !*/
 
