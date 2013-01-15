@@ -39,10 +39,10 @@ bool CPoint::Move(int dX, int dY)
 // Trivial
 {
 
-    // On caste les x, dX, y et dY dans des double avant l'opération pour
+    // On caste les x, dX, y et dY dans des long avant l'opération pour
     // éviter l'overflow qui fait passer le résultat en négatif
-    double xdX = (double)x+(double)dX;
-    double ydY = (double)y+(double)dY;
+    long xdX = (long)x+(long)dX;
+    long ydY = (long)y+(long)dY;
 
 	if ((xdX > maxInt) || (xdX < minInt) || (ydY > maxInt) || (ydY < minInt))
 	{
