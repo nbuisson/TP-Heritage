@@ -82,10 +82,10 @@ void CCircle::Select(int x1, int y1, int x2, int y2)
 	{
 		// Rectangle rX1, rY1; rX2, rY2 (défini par le coin supérieur gauche et inférieur droit)
 		// contenant le cercle
-		double rX1;
-		double rX2;
-		double rY1;
-		double rY2;
+		long rX1;
+		long rX2;
+		long rY1;
+		long rY2;
 		center.Distance(-rayon, rayon, rX1, rY1);
 		center.Distance(rayon, -rayon, rX2, rY2);
 

@@ -48,7 +48,7 @@ public:
     //
 
 
-	void Distance(int aX, int aY, double& dX, double& dY);
+	void Distance(int aX, int aY, long& dX, long& dY);
     // Mode d'emploi :
     //
     // Contrat :

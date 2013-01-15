@@ -79,14 +79,14 @@ bool CPoint::IsSelected(int x1, int y1, int x2, int y2)
 
 
 
-void CPoint::Distance(int aX, int aY, double& dX, double& dY)
+void CPoint::Distance(int aX, int aY, long& dX, long& dY)
 // Algorithme :
 // Trivial
 {
-    // Cast des int en double pour éviter le dépassement de capacité
+    // Cast des int en long pour éviter le dépassement de capacité
     // (si aX et aY sont de tailles limites)
-	dX = (double)aX+(double)x;
-	dY = (double)aY+(double)y;
+	dX = (long)aX+(long)x;
+	dY = (long)aY+(long)y;
 }
 
 
