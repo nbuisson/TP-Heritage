@@ -14,147 +14,262 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <limits>
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-//#include "stdafx.h"
 #include "CSchema.h"
-//#include "CFigure.h"
+#include "CFigure.h"
+#include "CCircle.h"
 #include "CHistoric.h"
 
+
 //------------------------------------------------------------- Constantes
+const int maxInt = numeric_limits<int>::max();
+const int minInt = numeric_limits<int>::min();
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- M�thodes publiques
-// type CSchema::M�thode ( liste des param�tres )
-// Algorithme :
-//
-//{
-//} //----- Fin de M�thode
 
 void CSchema::Execute()
 // Algorithme :
 // Execution de la fonction tant que la commande n'est pas EXIT
 // Appel de la commande
 {
-    bool bFinished=false;
-    string cmd;
-
     while (!bFinished)
     {
-        cin>>cmd;
-        if (cmd=="EXIT")
+		string cmd="";
+		getline(cin,cmd);
+        if(!ReadInstruction(cmd))
         {
-            bFinished=true;
+            cout<<"ERR "<<cmd<<endl;
         }
         else
         {
-            if (!ReadInstruction(cmd))
-            {
-                AnalyzeError(cmd);
-            }
+            cout<<"OK "<<cmd<<endl;
         }
     }
 } //----- Fin de execute
 
 bool CSchema::ReadInstruction (string aInst)
 {
+    vector<string> aVectInst;
 
-	// Découpage de l'appel dans une varialbe à part
-	size_t nextSpace = aInst.find(" ");
-	if (nextSpace == 0)
-	{
-		nextSpace=aInst.length();
-	}
+    if(aInst.empty())
+    {
+        cout<<"#No instruction to do !"<<endl;
+        return false;
+    }
 
-	string cmdCall = aInst.substr(0, nextSpace);
-
-	if(cmdCall=="C")
-    {
-
-    }
-	else if(cmdCall=="R")
-    {
-
-    }
-    else if(cmdCall=="L")
-    {
-    }
-	else if(cmdCall=="PL")
-    {
-    }
-    else if(cmdCall=="S")
-    {
-    }
-    else if(cmdCall=="DELETE")
-    {
-    }
-    else if(cmdCall=="MOVE")
-    {
-    }
-    else if(cmdCall=="LIST")
-    {
-    }
-    else if(cmdCall=="UNDO")
-    {
-    }
-    else if(cmdCall=="REDO")
-    {
-    }
-    else if(cmdCall=="LOAD")
-    {
-    }
-    else if(cmdCall=="SAVE")
-    {
-    }
-    else if(cmdCall=="CLEAR")
-    {
-    }
-    else if(cmdCall=="COUNT")
-    {
-    }
     else
     {
+        //Cmd splitting
+        stringstream tempString (aInst);
+        string buffer;
+        while (tempString>>buffer)
+        {
+            aVectInst.push_back(buffer);
+        }
+
+        int cmdChoise=-1;
+        for(int i = 0; i<NB_CMD && cmdChoise==-1; i++)
+        {
+            if ((aVectInst.front())==(possibleCmd->at(i)))
+            {
+                cmdChoise=i;
+            }
+        }
+
+        switch (cmdChoise)
+        {
+            case 0:
+			  	return Circle(aVectInst);
+				break;
+			case 1:
+				//return Rectangle(aVectInst);
+				break;
+			case 2:
+				//return Line(aVectInst);
+				break;
+			case 3:
+				//return PolyLine(aVectInst);
+				break;
+			case 4:
+				//return Select(aVectInst);
+				break;
+			case 5:
+				//return Clear();
+				break;
+			case 6:
+				//return Move(aVectInst);
+				break;
+			case 7:
+				ShowList();
+				return true;
+				break;
+			case 8:
+				//return Undo();
+				break;
+			case 9:
+				//return Redo();
+				break;
+			case 10:
+				//return Load(aVectInst);
+				break;
+			case 11:
+				//return Save(aVectInst);
+				break;
+			case 12:
+				//return Clear(aVectInst);
+				break;
+			case 13:
+				//return Count();
+				break;
+			case 14:
+				//return Exit();
+				break;
+			default:
+				cout << "# Unknown instruction" << endl;
+				return false;
+				break;
+        }
+        return false;
     }
-	return false;
+
 }
 
-bool CSchema::VerifySyntax (string aCmd, int aNbInt=0, bool fileCmd=false)
+
+// TODO : Rechercher la manière de ne pas prendre en compte le point
+
+bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
+// Algo : Décomposition de la commande dans les différentes sous commandes
+// Vérification du l'extension du fichier est bien du texte
+// Vérification que chaque parametre est bien castable en intéger
 {
+    //Vérif du Nb de paramètres
+    if (aCmd.size()!= aNbInt+1 && aNbInt!=-1)
+    {
+        return false;
+    }
+
+    //Vérifier que la présence d'une extension txt
 	if (fileCmd)
 	{
-		// Vérification du format du fichier
+		if ((aCmd[1]).find(".txt")==-1)
+		{
+			return false;
+		}
+	}
+
+	// Vérification que tous les arguments sont des nombres
+	if (aNbInt!=0 && fileCmd==false)
+	{
+		for (int i=1 ; i<aCmd.size(); i++)
+		{
+            int aIntParameter;
+            istringstream buffer (aCmd[i]);
+            if (!(buffer>>aIntParameter))
+            {
+                return false;
+            }
+		}
 
 	}
+
+	return true;
+}
+
+bool CSchema::Circle(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,3, false))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    int x = VectStringToInt(aInst[1]);
+    int y = VectStringToInt(aInst [2]);
+    int radius = VectStringToInt(aInst [3]);
+
+	double xMax = (double)x+(double)radius;
+	double xMin = (double)x-(double)radius;
+	double yMax = (double)y+(double)radius;
+	double yMin = (double)y-(double)radius;
+
+	// Gestion du fait que le rayon est en dehors du cadre de travail
+	if (xMax>maxInt || xMin<minInt || yMax>maxInt || yMin<minInt)
+	{
+		cout<<"#Wrong parameter(s)"<<endl;
+		return false;
+	}
+	else
+	{
+	    CCircle * aCircle = new CCircle (x,y,radius);
+		vFigure->push_back(aCircle);
+		return true;
+	}
+	return true;
 }
 
 void CSchema::ShowList ()
 // Algorithme :
 // Afficher la liste des elts
 {
-	/*
     vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
     {
-        it->GetCreator();
+        cout<<(*it)->GetCreator()<<endl;
         it++;
-    }*/
+    }
 }
 
-void CSchema::AnalyzeError (string aInst)
+int CSchema::VectStringToInt (string aString)
 {
-
+    stringstream aStreamString (aString);
+    int aInt;
+    aStreamString>>aInt;
+    return aInt;
 }
 
+void CSchema::Clear(bool all)
+// Algorithme :
+// Parcourt de la liste et effacer toute les figure ou celles selectionnées
+{
+	/*vectFigure::iterator it = vFigure->begin();
+    while (it!=vFigure->end())
+    {
+		CFigure * actualFigure;
+        actualFigure = it;
+        it++;
+
+		if (actualFigure->isSelected)
+		{
+			delete actualFigure;
+		}
+		else if (all)
+		{
+			delete actualFigure;
+		}
+    }*/
+
+}
 
 //-------------------------------------------- Constructeurs - destructeur
 CSchema::CSchema ( )
 // Algorithme :
 // Trivial
 {
-   // vFigure = new vectFigure;
+    vFigure = new vectFigure;
     historic = new CHistoric;
+
+    std::string strArr[] = {"C","R","L","PL","S","DELETE","MOVE","LIST","UNDO","REDO", "LOAD", "SAVE", "CLEAR", "COUNT", "EXIT"};
+    possibleCmd = new std::vector<std::string>(strArr, strArr + NB_CMD);
+
+    bFinished=false;
 
     Execute();
 } //----- Fin de CSchema
@@ -168,7 +283,7 @@ CSchema::~CSchema ( )
     delete historic;
 
     // Supression des figure
-    //delete vFigure;
+    delete vFigure;
 
 } //----- Fin de ~CSchema
 

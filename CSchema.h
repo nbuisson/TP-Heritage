@@ -10,16 +10,16 @@
 #define CSCHEMA_H_
 
 //--------------------------------------------------- Interfaces utilisees
-//#include "stdafx.h"
 //#include "CFigure.h"
 #include "CHistoric.h"
+#include "CFigure.h"
 #include <vector>
 using namespace std;
 
 //------------------------------------------------------------- Constantes
-
+#define NB_CMD 15
 //------------------------------------------------------------------ Types
-//typedef vector <CFigure> vectFigure;
+typedef vector <CFigure*> vectFigure;
 
 //------------------------------------------------------------------------
 // Rele de la classe <CSchema>
@@ -46,13 +46,7 @@ public:
     // Contrat :
     // Instruction différente de EXIT
 
-    void AnalyzeError (string aInst);
-    // Mode d'emploi :
-    // Analiser l'erreur pour proposer à l'utilisateur une bonne syntaxe
-    // Contrat :
-    // Rien
-
-	bool VerifySyntax (string aCmd, int aNbInt, bool fileCmd);
+	bool VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd);
 	// Mode d'emploi :
 	// Vérification de la syntaxe de la commande (nombre d'arg. valide / validité des arguments)
 	// Contrat :
@@ -82,9 +76,15 @@ public:
 protected:
 //----------------------------------------------------- M�thodes prot�g�es
 
+    bool Circle(vector<string> aInst);
+    void Clear(bool all);
+    int VectStringToInt (string aString);
+
 //----------------------------------------------------- Attributs prot�g�s
-CHistoric* historic;
-//vectFigure* vFigure;
+    CHistoric* historic;
+    vectFigure* vFigure;
+    vector<string>* possibleCmd;
+    bool bFinished;
 
 };
 

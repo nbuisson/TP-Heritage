@@ -21,7 +21,6 @@ using namespace std;
 
 int main()
 {
-    int intLim = numeric_limits<int>::max();
     //cout << intLim << endl;
 
     /*
@@ -89,7 +88,7 @@ int main()
     cout << c2->GetCreator() << endl;
 
     delete c2;
-    delete c1;*/
+    delete c1;
 
 
 	// Tests de CRectangle
@@ -117,14 +116,14 @@ int main()
 
     moveR = r1->Move(intLim,intLim);
     cout << "moveR : " << moveR << endl;
-    cout << r1->GetCreator() << "\n" << endl;
+    cout << r1->GetCreator() << "\n" << endl; */
 
 
-    /*
-	//CSchema * mySchema = new CSchema ();
+
+	CSchema * mySchema = new CSchema ();
 
 	int i;
-	cin>>i;*/
+	cin>>i;
 
 	return 0;
 }
