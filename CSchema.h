@@ -79,6 +79,8 @@ protected:
     bool Circle(vector<string> aInst);
     void Clear(bool all);
     int VectStringToInt (string aString);
+    void Count();
+    void Close();
 
 //----------------------------------------------------- Attributs prot�g�s
     CHistoric* historic;

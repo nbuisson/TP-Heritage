@@ -102,7 +102,8 @@ bool CSchema::ReadInstruction (string aInst)
 				//return Select(aVectInst);
 				break;
 			case 5:
-				//return Clear();
+				Clear(false);
+				return true;
 				break;
 			case 6:
 				//return Move(aVectInst);
@@ -124,13 +125,15 @@ bool CSchema::ReadInstruction (string aInst)
 				//return Save(aVectInst);
 				break;
 			case 12:
-				//return Clear(aVectInst);
+				Clear(true);
+				return true;
 				break;
 			case 13:
-				//return Count();
+				Count();
+				return true;
 				break;
 			case 14:
-				//return Exit();
+				Close();
 				break;
 			default:
 				cout << "# Unknown instruction" << endl;
@@ -239,23 +242,31 @@ void CSchema::Clear(bool all)
 // Algorithme :
 // Parcourt de la liste et effacer toute les figure ou celles selectionnées
 {
-	/*vectFigure::iterator it = vFigure->begin();
+	vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
     {
-		CFigure * actualFigure;
-        actualFigure = it;
-        it++;
-
-		if (actualFigure->isSelected)
+		if ((*it)->isSelected)
 		{
-			delete actualFigure;
+			it = vFigure->erase(it);
 		}
 		else if (all)
 		{
-			delete actualFigure;
+			it = vFigure->erase(it);
 		}
-    }*/
+    }
 
+}
+
+void CSchema::Count()
+// Algo : trivial
+{
+    cout<<vFigure->size()<<endl;
+}
+
+void CSchema::Close ()
+{
+    Clear(true);
+    exit(0);
 }
 
 //-------------------------------------------- Constructeurs - destructeur

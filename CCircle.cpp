@@ -142,6 +142,7 @@ CCircle::CCircle ( const CCircle & unCCircle ) : center(unCCircle.center)
     cout << "Appel au constructeur de copie de <CCircle>" << endl;
 #endif
     rayon = unCCircle.rayon;
+    isSelected=false;
 } //----- Fin de CCircle (constructeur de copie)
 
 
