@@ -77,6 +77,9 @@ protected:
 //----------------------------------------------------- M�thodes prot�g�es
 
     bool Circle(vector<string> aInst);
+    bool Rectangle(vector<string> aInst);
+    bool Poly(vector<string> aInst,bool line);
+    void Select(aVectInst);
     void Clear(bool all);
     int VectStringToInt (string aString);
     void Count();

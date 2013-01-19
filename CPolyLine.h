@@ -22,7 +22,7 @@ using namespace std;
 
 //------------------------------------------------------------------ Types
 
-typedef vector<CPoint> VectPoint;
+typedef vector<CPoint*> VectPoint;
 
 //------------------------------------------------------------------------
 // Rele de la classe <CPolyLine>

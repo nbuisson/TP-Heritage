@@ -24,6 +24,10 @@ using namespace std;
 #include "CSchema.h"
 #include "CFigure.h"
 #include "CCircle.h"
+#include "CRectangle.h"
+#include "CPolyLine.h"
+#include "CPoint.h"
+#include "CLine.h"
 #include "CHistoric.h"
 
 
@@ -90,16 +94,17 @@ bool CSchema::ReadInstruction (string aInst)
 			  	return Circle(aVectInst);
 				break;
 			case 1:
-				//return Rectangle(aVectInst);
+				return Rectangle(aVectInst);
 				break;
 			case 2:
-				//return Line(aVectInst);
+				return Poly(aVectInst,true);
 				break;
 			case 3:
-				//return PolyLine(aVectInst);
+				return Poly(aVectInst,false);
 				break;
 			case 4:
-				//return Select(aVectInst);
+				Select(aVectInst);
+				return true;
 				break;
 			case 5:
 				Clear(false);
@@ -179,6 +184,10 @@ bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
             {
                 return false;
             }
+            else if (aIntParameter>maxInt || aIntParameter<minInt)
+            {
+                return false;
+            }
 		}
 
 	}
@@ -215,7 +224,61 @@ bool CSchema::Circle(vector<string> aInst)
 		vFigure->push_back(aCircle);
 		return true;
 	}
-	return true;
+}
+
+bool CSchema::Rectangle(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,4, false))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    int x1 = VectStringToInt(aInst[1]);
+    int y1 = VectStringToInt(aInst [2]);
+    int x2 = VectStringToInt(aInst [3]);
+    int y2 = VectStringToInt(aInst [4]);
+
+    CRectangle * aRectangle = new CRectangle (x1,y1,x2,y2);
+    vFigure->push_back(aRectangle);
+    return true;
+}
+
+bool CSchema::Poly(vector<string> aInst,bool line)
+{
+    // Choix entre lign et ployligne
+    int aNbPoint = -1;
+    if (line)
+    {
+        aNbPoint = 4;
+    }
+
+    // Vérif syntaxe
+    if (!VerifySyntax(aInst, aNbPoint, false))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    // Création du vecteur de points
+    VectPoint * aVectPoint = new VectPoint;
+    for (int i=1; i < aInst.size(); i+=2)
+    {
+        CPoint * aPoint = new CPoint (VectStringToInt(aInst[i]),VectStringToInt(aInst[i+1]));
+        aVectPoint->push_back(aPoint);
+    }
+
+    if (line)
+    {
+        //CLine * aLine = new CLine (aVectPoint);
+        //vFigure->push_back(aLine);
+    }
+    else
+    {
+        //CPolyLine * aPoly = new CPolyLine (aVectPoint);
+        //vFigure->push_back(aPoly);
+    }
+    return true;
 }
 
 void CSchema::ShowList ()
@@ -228,6 +291,11 @@ void CSchema::ShowList ()
         cout<<(*it)->GetCreator()<<endl;
         it++;
     }
+}
+
+void CSchema::Select(aVectInst)
+{
+
 }
 
 int CSchema::VectStringToInt (string aString)

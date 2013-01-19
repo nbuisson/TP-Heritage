@@ -45,7 +45,7 @@ string CLine::GetCreator()
 	VectPoint::iterator itPoint = vPoint->begin();
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
-		itPoint->GetXY(xN, yN);
+		(*itPoint)->GetXY(xN, yN);
 		cmd += xN;
 		cmd += " ";
 		cmd += yN;

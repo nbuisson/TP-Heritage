@@ -38,7 +38,7 @@ bool CPolyLine::Move(int dX, int dY)
 // Trivial
 {
 	VectPoint::iterator itPoint = vPoint->begin();
-	for( ; (itPoint != vPoint->end()) && (itPoint->Move(dX, dY)) ; itPoint++)
+	for( ; (itPoint != vPoint->end()) && ((*itPoint)->Move(dX, dY)) ; itPoint++)
 	{
 	}
 	if(itPoint == vPoint->end())
@@ -57,7 +57,7 @@ void CPolyLine::Select(int x1, int y1, int x2, int y2)
 //
 {
 	VectPoint::iterator itPoint = vPoint->begin();
-	for( ; (itPoint != vPoint->end()) && (itPoint->IsSelected(x1, y1, x2, y2)) ; itPoint++)
+	for( ; (itPoint != vPoint->end()) && ((*itPoint)->IsSelected(x1, y1, x2, y2)) ; itPoint++)
 	{
 	}
 	if(itPoint == vPoint->end())
@@ -82,7 +82,7 @@ string CPolyLine::GetCreator()
 	VectPoint::iterator itPoint = vPoint->begin();
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
-		itPoint->GetXY(xN, yN);
+		(*itPoint)->GetXY(xN, yN);
 		cmd += xN;
 		cmd += " ";
 		cmd += yN;
@@ -110,16 +110,6 @@ CPolyLine::CPolyLine(const CPolyLine & unCPolyLine) // TODO : faire le construct
     cout << "Appel au constructeur de copie de <CPolyLine>" << endl;
 #endif
 } //----- Fin de CPolyLine (constructeur de copie)
-
-
-/*CPolyLine::CPolyLine()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <CPolyLine>" << endl;
-#endif
-} //----- Fin de CPolyLine*/
 
 
 CPolyLine::~CPolyLine ()

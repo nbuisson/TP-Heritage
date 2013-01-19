@@ -126,7 +126,7 @@
 	<vector>
 	<string>
 
-1358582953 source:c:\users\pm\documents\github\tp-heritage\cline.cpp
+1358615333 source:c:\users\pm\documents\github\tp-heritage\cline.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -134,14 +134,14 @@
 	"CPolyLine.h"
 	"CFigure.h"
 
-1358582953 c:\users\pm\documents\github\tp-heritage\cline.h
+1358615769 c:\users\pm\documents\github\tp-heritage\cline.h
 	<string>
 	<vector>
 	"CFigure.h"
 	"CPolyLine.h"
 	"CPoint.h"
 
-1358583254 c:\users\pm\documents\github\tp-heritage\cpolyline.h
+1358615275 c:\users\pm\documents\github\tp-heritage\cpolyline.h
 	<string>
 	<vector>
 	"CFigure.h"
@@ -152,7 +152,7 @@
 	<limits>
 	"CPoint.h"
 
-1358582953 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
+1358615877 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -183,7 +183,7 @@
 	"CCircle.h"
 	"CHistoric.h"
 
-1358613431 c:\users\pm\documents\github\tp-heritage\cschema.h
+1358614822 c:\users\pm\documents\github\tp-heritage\cschema.h
 	"CHistoric.h"
 	"CFigure.h"
 	<vector>
