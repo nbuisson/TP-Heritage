@@ -17,6 +17,8 @@
 #include <limits>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fstream>
+
 
 using namespace std;
 
@@ -103,8 +105,7 @@ bool CSchema::ReadInstruction (string aInst)
 				return Poly(aVectInst,false);
 				break;
 			case 4:
-				Select(aVectInst);
-				return true;
+				return Select(aVectInst);
 				break;
 			case 5:
 				Clear(false);
@@ -124,10 +125,10 @@ bool CSchema::ReadInstruction (string aInst)
 				//return Redo();
 				break;
 			case 10:
-				//return Load(aVectInst);
+				return Load(aVectInst);
 				break;
 			case 11:
-				//return Save(aVectInst);
+				return Save(aVectInst);
 				break;
 			case 12:
 				Clear(true);
@@ -293,9 +294,40 @@ void CSchema::ShowList ()
     }
 }
 
-void CSchema::Select(aVectInst)
+void CSchema::UnSelectAll ()
 {
+  vectFigure::iterator it = vFigure->begin();
+    while (it!=vFigure->end())
+    {
+        (*it)->Unselect();
+        it++;
+    }
+}
 
+bool CSchema::Select(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,4, false))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    UnSelectAll();
+
+
+    int x1 = VectStringToInt(aInst[1]);
+    int y1 = VectStringToInt(aInst [2]);
+    int x2 = VectStringToInt(aInst [3]);
+    int y2 = VectStringToInt(aInst [4]);
+
+    vectFigure::iterator it = vFigure->begin();
+    while (it!=vFigure->end())
+    {
+        (*it)->Select(x1,y1,x2,y2);
+        it++;
+    }
+
+    return true;
 }
 
 int CSchema::VectStringToInt (string aString)
@@ -306,23 +338,77 @@ int CSchema::VectStringToInt (string aString)
     return aInt;
 }
 
+bool CSchema::Load(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,1, true))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    ifstream myFile (aInst[1].c_str());
+    if(!myFile.is_open())
+    {
+        cout<<"# Impossible to open :"<<aInst[1]<<endl;
+    }
+    else
+    {
+        vector<string> * StackCmd = new vector<string>;
+        string buf;
+        while(myFile.good())
+        {
+            getline(myFile,buf);
+            StackCmd->push_back(buf);
+        }
+        myFile.close();
+    }
+}
+
+bool CSchema::Save(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,1, true))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    ofstream myFile (aInst[1].c_str(), ios::trunc);
+    if(!myFile.is_open())
+    {
+        cout<<"# Impossible to open :"<<aInst[1]<<endl;
+    }
+    else
+    {
+        vectFigure::iterator it = vFigure->begin();
+        while (it!=vFigure->end())
+        {
+            myFile<<(*it)->GetCreator()<<endl;
+            it++;
+        }
+        myFile.close();
+    }
+}
+
 void CSchema::Clear(bool all)
 // Algorithme :
 // Parcourt de la liste et effacer toute les figure ou celles selectionnées
 {
+    int nbDelete=0;
 	vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
     {
-		if ((*it)->isSelected)
+		if ((*it)->GetisSelected())
 		{
 			it = vFigure->erase(it);
+			nbDelete++;
 		}
 		else if (all)
 		{
 			it = vFigure->erase(it);
+			nbDelete++;
 		}
     }
-
+    cout<<nbDelete<<endl;
 }
 
 void CSchema::Count()

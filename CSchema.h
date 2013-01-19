@@ -79,7 +79,10 @@ protected:
     bool Circle(vector<string> aInst);
     bool Rectangle(vector<string> aInst);
     bool Poly(vector<string> aInst,bool line);
-    void Select(aVectInst);
+    bool Select(vector<string> aInst);
+    bool Load(vector<string> aInst);
+    bool Save(vector<string> aInst);
+    void UnSelectAll ();
     void Clear(bool all);
     int VectStringToInt (string aString);
     void Count();

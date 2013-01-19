@@ -68,7 +68,6 @@ public:
 	// Contrat :
 	//
 
-    bool isSelected;
 //------------------------------------------------- Surcharge d'op�rateurs
     //CFigure & operator = ( const CFigure & unCFigure );
     // Mode d'emploi :
@@ -102,6 +101,7 @@ protected:
 //----------------------------------------------------- M�thodes prot�g�es
 
 //----------------------------------------------------- Attributs proteges
+bool isSelected;
 
 };
 
