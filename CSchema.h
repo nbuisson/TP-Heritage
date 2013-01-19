@@ -23,8 +23,9 @@ typedef vector <CFigure*> vectFigure;
 
 //------------------------------------------------------------------------
 // Rele de la classe <CSchema>
-//
-//
+// La classe CSchema permet l'interaction avec l'utilisateur dans
+// l'application. Elle demande les instruction gêre les elts geo et délègue
+// la responsabilité de l'historique à la classe CHistorique
 //------------------------------------------------------------------------
 
 class CSchema
@@ -77,17 +78,87 @@ protected:
 //----------------------------------------------------- M�thodes prot�g�es
 
     bool Circle(vector<string> aInst);
+    // Mode d'emploi :
+    // Création d'un cercle, en passent l'instruction courante en paramêtre
+    // Renvoie la validité de la création du cercle
+    // Contrat :
+    // Rien
+
     bool Rectangle(vector<string> aInst);
+    // Mode d'emploi :
+    // Création d'un Rectangle, en passent l'instruction courante en paramêtre
+    // Renvoie la validité de la création du rectangle
+    // Contrat :
+    // Rien
+
     bool Poly(vector<string> aInst,bool line);
+    // Mode d'emploi :
+    // Création d'un (poly)ligne, en passent l'instruction courante en paramêtre
+    // ainqi que le type d'elt géometrique on souhaite créer
+    // Renvoie la validité de la création de la (poly)ligne
+    // Contrat :
+    // Rien
+
     bool Select(vector<string> aInst);
+    // Mode d'emploi :
+    // Selection des elts présent dans le rectangle définis par ses 2 sommets opposés
+    // passé en paramêtre
+    // Contrat :
+    // Rien
+
     bool Load(vector<string> aInst);
+    // Mode d'emploi :
+    // Création d'un (poly)ligne, en passent l'instruction courante en paramêtre
+    // ainqi que le type d'elt géometrique on souhaite créer
+    // Renvoie la validité de la création du cercle
+    // Contrat :
+    // Rien
+
     bool Save(vector<string> aInst);
+    // Mode d'emploi :
+    // Sauvegarder les elts présents dans un fichier txt dont le nom est
+    // passé en paramêtre. Renvoi si l'écriture à bien était réalisée
+    // Contrat :
+    // Rien
+
     bool Move(vector<string> aInst);
+    // Mode d'emploi :
+    // Déplacement des tous les elts géo selectionés d'un dx et dy passé par paramêtre
+    // Renvoi la validité du déplament
+    // Contrat :
+    // Rien
+
     void UnSelectAll ();
+    // Mode d'emploi :
+    // Déselectionner la selection actuelle
+    // Contrat :
+    // Rien
+
     void Clear(bool all);
+    // Mode d'emploi :
+    // Suppression des elt selectionné si le flag all est faux
+    // Dans le cas échéant suppression de tous les elts
+    // Contrat :
+    // Rien
+
     int VectStringToInt (string aString);
+    // Mode d'emploi :
+    // Conversion d'une string passé par paramêtre en entier
+    // Renvoi l'entier convertis
+    // Contrat :
+    // Rien
+
     void Count();
+    // Mode d'emploi :
+    // Affichage du nombre d'elt instancié
+    // Contrat :
+    // Rien
+
     void Close();
+    // Mode d'emploi :
+    // Fermeture du programme
+    // Contrat :
+    // Rien
 
 //----------------------------------------------------- Attributs prot�g�s
     CHistoric* historic;
