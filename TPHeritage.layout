@@ -8,7 +8,7 @@
 		<Cursor position="1955" topLine="26" />
 	</File>
 	<File name="CFigure.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="1804" topLine="43" />
+		<Cursor position="1612" topLine="16" />
 	</File>
 	<File name="CFigure.h" open="0" top="0" tabpos="4">
 		<Cursor position="1319" topLine="33" />
@@ -19,8 +19,8 @@
 	<File name="CHistoric.h" open="0" top="0" tabpos="0">
 		<Cursor position="2323" topLine="32" />
 	</File>
-	<File name="CLine.cpp" open="0" top="0" tabpos="8">
-		<Cursor position="1516" topLine="68" />
+	<File name="CLine.cpp" open="1" top="1" tabpos="8">
+		<Cursor position="637" topLine="0" />
 	</File>
 	<File name="CLine.h" open="0" top="0" tabpos="9">
 		<Cursor position="1754" topLine="25" />
@@ -32,16 +32,16 @@
 		<Cursor position="1407" topLine="61" />
 	</File>
 	<File name="CPolyLine.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="2161" topLine="66" />
+		<Cursor position="1946" topLine="66" />
 	</File>
 	<File name="CPolyLine.h" open="1" top="0" tabpos="4">
 		<Cursor position="1364" topLine="47" />
 	</File>
-	<File name="CRectangle.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1247" topLine="25" />
+	<File name="CRectangle.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="634" topLine="10" />
 	</File>
-	<File name="CRectangle.h" open="0" top="0" tabpos="2">
-		<Cursor position="1542" topLine="23" />
+	<File name="CRectangle.h" open="1" top="0" tabpos="6">
+		<Cursor position="1465" topLine="0" />
 	</File>
 	<File name="CSchema.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="6110" topLine="243" />
@@ -49,7 +49,7 @@
 	<File name="CSchema.h" open="1" top="0" tabpos="2">
 		<Cursor position="2582" topLine="69" />
 	</File>
-	<File name="TPHeritage.cpp" open="1" top="1" tabpos="3">
+	<File name="TPHeritage.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="2887" topLine="28" />
 	</File>
 </CodeBlocks_layout_file>

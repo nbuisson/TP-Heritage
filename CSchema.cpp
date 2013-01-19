@@ -62,6 +62,10 @@ void CSchema::Execute()
 } //----- Fin de execute
 
 bool CSchema::ReadInstruction (string aInst)
+// Algorithme :
+// Vérification de la validité de la commande en comparant les
+// instructions éxistances avec l'instruction en cours, puis appel
+// de la fonction adéquate
 {
     vector<string> aVectInst;
 
@@ -152,8 +156,6 @@ bool CSchema::ReadInstruction (string aInst)
 }
 
 
-// TODO : Rechercher la manière de ne pas prendre en compte le point
-
 bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
 // Algo : Décomposition de la commande dans les différentes sous commandes
 // Vérification du l'extension du fichier est bien du texte
@@ -197,6 +199,9 @@ bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
 }
 
 bool CSchema::Circle(vector<string> aInst)
+// Algo : Création d'un cercle
+// Vérification de la validité des paramètre (nb de paramètres, castable en entier,
+// pas de dépassement mémoire), puis l'ajouter dans la liste
 {
     if (!VerifySyntax(aInst,3, false))
     {
@@ -228,6 +233,9 @@ bool CSchema::Circle(vector<string> aInst)
 }
 
 bool CSchema::Rectangle(vector<string> aInst)
+// Algo : Création d'un Rectangle
+// Vérification de la validité des paramètre (nb de paramètres, castable en entier,
+// pas de dépassement mémoire), puis l'ajouter dans la liste
 {
     if (!VerifySyntax(aInst,4, false))
     {
@@ -246,8 +254,11 @@ bool CSchema::Rectangle(vector<string> aInst)
 }
 
 bool CSchema::Poly(vector<string> aInst,bool line)
+// Algo : Création d'une (poly)ligne
+// Vérification de la validité des paramètre (nb de paramètres, castable en entier,
+// pas de dépassement mémoire), puis l'ajouter dans la liste
 {
-    // Choix entre lign et ployligne
+    // Choix entre ligne et ployligne
     int aNbPoint = -1;
     if (line)
     {
@@ -283,6 +294,9 @@ bool CSchema::Poly(vector<string> aInst,bool line)
 }
 
 bool CSchema::Move(vector<string> aInst)
+// Algo : Déplacement des différents points
+// Parcourt de la liste et déplacement des points pour les elt sélectionnés
+// Si un déplacement n'est pas possible : annulation des déplacements précédents
 {
     if (!VerifySyntax(aInst,2, false))
     {
@@ -320,7 +334,7 @@ bool CSchema::Move(vector<string> aInst)
 
 void CSchema::ShowList ()
 // Algorithme :
-// Afficher la liste des elts
+// Trivial
 {
     vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
@@ -331,6 +345,8 @@ void CSchema::ShowList ()
 }
 
 void CSchema::UnSelectAll ()
+// Algorithme :
+// Trivial
 {
   vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
@@ -341,6 +357,9 @@ void CSchema::UnSelectAll ()
 }
 
 bool CSchema::Select(vector<string> aInst)
+// Algorithme :
+// Vérification des paramètre puis déselection de la précédente sélection
+// Nouvelle sélection grâce à un parcourt du tableau
 {
     if (!VerifySyntax(aInst,4, false))
     {
@@ -367,6 +386,8 @@ bool CSchema::Select(vector<string> aInst)
 }
 
 int CSchema::VectStringToInt (string aString)
+// Algorithme :
+// Trivial
 {
     stringstream aStreamString (aString);
     int aInt;
@@ -375,6 +396,8 @@ int CSchema::VectStringToInt (string aString)
 }
 
 bool CSchema::Load(vector<string> aInst)
+// Algorithme :
+//
 {
     if (!VerifySyntax(aInst,1, true))
     {
@@ -401,6 +424,9 @@ bool CSchema::Load(vector<string> aInst)
 }
 
 bool CSchema::Save(vector<string> aInst)
+// Algorithme :
+// Récupartion des constructeur des elts présent dans la liste
+// Ecriture de de ces constructeur dans un fichier
 {
     if (!VerifySyntax(aInst,1, true))
     {
