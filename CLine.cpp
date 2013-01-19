@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 
 //------------------------------------------------------ Include personnel
@@ -39,19 +40,18 @@ string CLine::GetCreator()
 //
 {
 	string cmd;
-	cmd += "L ";
+	cmd = "L";
+	stringstream intToStr;
 	int xN;
 	int yN;
 	VectPoint::iterator itPoint = vPoint->begin();
+
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
 		(*itPoint)->GetXY(xN, yN);
-		cmd += xN;
-		cmd += " ";
-		cmd += yN;
-		cmd += " ";
+		intToStr << " " << xN << " " << yN;
 	}
-	cmd.replace(cmd.length()-1, 1, "");
+	cmd += intToStr.str();
 	return cmd;
 }
 

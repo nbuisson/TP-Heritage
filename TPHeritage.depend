@@ -152,8 +152,9 @@
 	<limits>
 	"CPoint.h"
 
-1358627258 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
+1358628186 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
 	<iostream>
+	<sstream>
 	<string>
 	<vector>
 	"CPolyLine.h"
@@ -171,7 +172,7 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358626815 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358627523 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

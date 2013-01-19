@@ -12,6 +12,7 @@
 //-------------------------------------------------------- Include systeme
 //#include "stdafx.h"
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -76,19 +77,18 @@ string CPolyLine::GetCreator()
 //
 {
 	string cmd;
-	cmd += "PL ";
+	cmd = "PL";
+	stringstream intToStr;
 	int xN;
 	int yN;
 	VectPoint::iterator itPoint = vPoint->begin();
+
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
 		(*itPoint)->GetXY(xN, yN);
-		cmd += xN;
-		cmd += " ";
-		cmd += yN;
-		cmd += " ";
+		intToStr << " " << xN << " " << yN;
 	}
-	cmd.replace(cmd.length()-1, 1, "");
+	cmd += intToStr.str();
 	return cmd;
 }
 
