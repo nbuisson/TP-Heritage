@@ -95,7 +95,7 @@
 	<limits>
 	"CPoint.h"
 
-1358612591 source:c:\users\pm\documents\github\tp-heritage\ccircle.cpp
+1358626897 source:c:\users\pm\documents\github\tp-heritage\ccircle.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -141,7 +141,7 @@
 	"CPolyLine.h"
 	"CPoint.h"
 
-1358615275 c:\users\pm\documents\github\tp-heritage\cpolyline.h
+1358627227 c:\users\pm\documents\github\tp-heritage\cpolyline.h
 	<string>
 	<vector>
 	"CFigure.h"
@@ -152,7 +152,7 @@
 	<limits>
 	"CPoint.h"
 
-1358615877 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
+1358627258 source:c:\users\pm\documents\github\tp-heritage\cpolyline.cpp
 	<iostream>
 	<string>
 	<vector>
@@ -171,13 +171,14 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358619183 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358626815 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>
 	<limits>
 	<stdio.h>
 	<stdlib.h>
+	<fstream>
 	"CSchema.h"
 	"CFigure.h"
 	"CCircle.h"
@@ -187,7 +188,7 @@
 	"CLine.h"
 	"CHistoric.h"
 
-1358620583 c:\users\pm\documents\github\tp-heritage\cschema.h
+1358624822 c:\users\pm\documents\github\tp-heritage\cschema.h
 	"CHistoric.h"
 	"CFigure.h"
 	<vector>

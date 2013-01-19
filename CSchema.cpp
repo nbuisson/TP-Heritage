@@ -112,7 +112,7 @@ bool CSchema::ReadInstruction (string aInst)
 				return true;
 				break;
 			case 6:
-				//return Move(aVectInst);
+				return Move(aVectInst);
 				break;
 			case 7:
 				ShowList();
@@ -255,7 +255,7 @@ bool CSchema::Poly(vector<string> aInst,bool line)
     }
 
     // Vérif syntaxe
-    if (!VerifySyntax(aInst, aNbPoint, false))
+    if (!VerifySyntax(aInst, aNbPoint, false) || (aNbPoint==-1 && (aInst.size()-1)%4!=0))
     {
         cout<<"#Wrong parameter(s)"<<endl;
         return false;
@@ -271,15 +271,51 @@ bool CSchema::Poly(vector<string> aInst,bool line)
 
     if (line)
     {
-        //CLine * aLine = new CLine (aVectPoint);
-        //vFigure->push_back(aLine);
+        CLine * aLine = new CLine (aVectPoint);
+        vFigure->push_back(aLine);
     }
     else
     {
-        //CPolyLine * aPoly = new CPolyLine (aVectPoint);
-        //vFigure->push_back(aPoly);
+        CPolyLine * aPoly = new CPolyLine (aVectPoint);
+        vFigure->push_back(aPoly);
     }
     return true;
+}
+
+bool CSchema::Move(vector<string> aInst)
+{
+    if (!VerifySyntax(aInst,2, false))
+    {
+        cout<<"#Wrong parameter(s)"<<endl;
+        return false;
+    }
+
+    bool bMovePossible = true;
+    vectFigure::iterator it = vFigure->begin();
+    while (it!=vFigure->end() && bMovePossible)
+    {
+        if ((*it)->GetisSelected())
+        {
+            bMovePossible=(*it)->Move(VectStringToInt(aInst[1]),VectStringToInt(aInst[2]));
+        }
+        it++;
+    }
+
+    if (bMovePossible)
+    {
+        return true;
+    }
+    else
+    {
+        vectFigure::iterator itRedo = it;
+        while(it!=vFigure->begin())
+        {
+            (*it)->Move(-VectStringToInt(aInst[1]),-VectStringToInt(aInst[2]));
+            it--;
+        }
+        cout<<"# Invalid Move"<<endl;
+        return false;
+    }
 }
 
 void CSchema::ShowList ()
@@ -376,6 +412,7 @@ bool CSchema::Save(vector<string> aInst)
     if(!myFile.is_open())
     {
         cout<<"# Impossible to open :"<<aInst[1]<<endl;
+        return false;
     }
     else
     {
@@ -386,6 +423,7 @@ bool CSchema::Save(vector<string> aInst)
             it++;
         }
         myFile.close();
+        return true;
     }
 }
 
@@ -406,6 +444,10 @@ void CSchema::Clear(bool all)
 		{
 			it = vFigure->erase(it);
 			nbDelete++;
+		}
+		else
+		{
+		    it++;
 		}
     }
     cout<<nbDelete<<endl;

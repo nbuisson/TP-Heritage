@@ -50,7 +50,6 @@ bool CCircle::Move(long dX, long dY)
     Select(minLim, minLim, maxLim, maxLim);
 
     int tempX; int tempY; center.GetXY(tempX, tempY);
-    cout << "x : " << tempX << " ; y : " << tempY << endl;
 
     if (isSelected && ok)
     {

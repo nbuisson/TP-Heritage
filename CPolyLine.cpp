@@ -33,7 +33,7 @@ using namespace std;
 //} //----- Fin de Methode
 
 
-bool CPolyLine::Move(int dX, int dY)
+bool CPolyLine::Move(long dX, long dY)
 // Algorithme :
 // Trivial
 {

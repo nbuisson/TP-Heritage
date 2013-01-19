@@ -82,6 +82,7 @@ protected:
     bool Select(vector<string> aInst);
     bool Load(vector<string> aInst);
     bool Save(vector<string> aInst);
+    bool Move(vector<string> aInst);
     void UnSelectAll ();
     void Clear(bool all);
     int VectStringToInt (string aString);
