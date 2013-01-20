@@ -102,6 +102,7 @@ void CHistoric::AddDelInst (vector<string> *aInst)
     {
         vStack->erase(vStack->begin());
     }
+    DisplayHist();
 }
 
 bool CHistoric::Undo ()
