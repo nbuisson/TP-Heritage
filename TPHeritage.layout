@@ -5,57 +5,37 @@
 		<Cursor position="1657" topLine="38" />
 	</File>
 	<File name="CCircle.h" open="0" top="0" tabpos="4">
-		<Cursor position="1955" topLine="26" />
+		<Cursor position="2544" topLine="67" />
 	</File>
 	<File name="CFigure.cpp" open="0" top="0" tabpos="5">
-<<<<<<< HEAD
-		<Cursor position="1138" topLine="36" />
+		<Cursor position="1153" topLine="25" />
 	</File>
 	<File name="CFigure.h" open="0" top="0" tabpos="4">
-		<Cursor position="1457" topLine="30" />
+		<Cursor position="1626" topLine="82" />
 	</File>
-	<File name="CHistoric.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1886" topLine="41" />
-=======
-		<Cursor position="1612" topLine="16" />
+	<File name="CHistoric.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="886" topLine="1" />
 	</File>
-	<File name="CFigure.h" open="0" top="0" tabpos="4">
-		<Cursor position="1319" topLine="33" />
+	<File name="CHistoric.h" open="1" top="1" tabpos="2">
+		<Cursor position="1383" topLine="19" />
 	</File>
-	<File name="CHistoric.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="513" topLine="0" />
->>>>>>> parsing
-	</File>
-	<File name="CHistoric.h" open="1" top="0" tabpos="4">
-		<Cursor position="2151" topLine="39" />
-	</File>
-<<<<<<< HEAD
 	<File name="CLine.cpp" open="0" top="0" tabpos="8">
-		<Cursor position="656" topLine="48" />
-=======
-	<File name="CLine.cpp" open="1" top="1" tabpos="8">
-		<Cursor position="637" topLine="0" />
->>>>>>> parsing
+		<Cursor position="2347" topLine="69" />
 	</File>
 	<File name="CLine.h" open="0" top="0" tabpos="9">
-		<Cursor position="1754" topLine="25" />
+		<Cursor position="1754" topLine="58" />
 	</File>
 	<File name="CPoint.cpp" open="0" top="0" tabpos="5">
-<<<<<<< HEAD
 		<Cursor position="1579" topLine="90" />
-=======
-		<Cursor position="870" topLine="33" />
->>>>>>> parsing
 	</File>
 	<File name="CPoint.h" open="0" top="0" tabpos="6">
-		<Cursor position="1407" topLine="61" />
+		<Cursor position="1556" topLine="74" />
 	</File>
-<<<<<<< HEAD
 	<File name="CPolyLine.cpp" open="0" top="0" tabpos="5">
-		<Cursor position="1974" topLine="66" />
+		<Cursor position="2871" topLine="102" />
 	</File>
 	<File name="CPolyLine.h" open="0" top="0" tabpos="4">
-		<Cursor position="1364" topLine="74" />
+		<Cursor position="2516" topLine="75" />
 	</File>
 	<File name="CRectangle.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="634" topLine="10" />
@@ -63,35 +43,13 @@
 	<File name="CRectangle.h" open="0" top="0" tabpos="6">
 		<Cursor position="1465" topLine="0" />
 	</File>
-	<File name="CSchema.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="6804" topLine="303" />
+	<File name="CSchema.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="3467" topLine="127" />
 	</File>
-	<File name="CSchema.h" open="1" top="0" tabpos="2">
-		<Cursor position="2695" topLine="60" />
+	<File name="CSchema.h" open="1" top="0" tabpos="1">
+		<Cursor position="1461" topLine="27" />
 	</File>
-	<File name="TPHeritage.cpp" open="0" top="0" tabpos="3">
-		<Cursor position="2887" topLine="97" />
-=======
-	<File name="CPolyLine.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="1946" topLine="66" />
-	</File>
-	<File name="CPolyLine.h" open="1" top="0" tabpos="4">
-		<Cursor position="1364" topLine="47" />
-	</File>
-	<File name="CRectangle.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="634" topLine="10" />
-	</File>
-	<File name="CRectangle.h" open="1" top="0" tabpos="6">
-		<Cursor position="1465" topLine="0" />
-	</File>
-	<File name="CSchema.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="6110" topLine="243" />
-	</File>
-	<File name="CSchema.h" open="1" top="0" tabpos="2">
-		<Cursor position="2582" topLine="69" />
-	</File>
-	<File name="TPHeritage.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="2887" topLine="28" />
->>>>>>> parsing
+	<File name="TPHeritage.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="683" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
