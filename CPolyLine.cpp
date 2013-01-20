@@ -2,7 +2,7 @@
                            CPolyLine  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Realisation de la classe <CPolyLine> (fichier CPolyLine.cpp) -------
@@ -56,7 +56,7 @@ bool CPolyLine::Move(long dX, long dY)
 
 void CPolyLine::Select(int x1, int y1, int x2, int y2)
 // Algorithme :
-//
+// Trivial
 {
 	VectPoint::iterator itPoint = vPoint->begin();
 	for( ; (itPoint != vPoint->end()) && ((*itPoint)->IsSelected(x1, y1, x2, y2)) ; itPoint++)
@@ -75,7 +75,7 @@ void CPolyLine::Select(int x1, int y1, int x2, int y2)
 
 string CPolyLine::GetCreator()
 // Algorithme :
-//
+// Trivial
 {
 	string cmd;
 

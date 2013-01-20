@@ -2,7 +2,7 @@
                            CCircle  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Interface de la classe <CCircle> (fichier CCircle.h) ------
@@ -42,23 +42,24 @@ public:
 
 	bool Move(long dX, long dY);
     // Mode d'emploi :
-    //
+    // Déplace le cercle de (dX, dY)
     // Contrat :
-    //
+    // Aucun
 
 
 	void Select(int x1, int y1, int x2, int y2);
     // Mode d'emploi :
-    //
+    // Séléctionne le cercle s'il est dans le rectangle défini par (x1, y1)
+    // et (x2, y2)
     // Contrat :
-    //
+    // Aucun
 
 
 	string GetCreator();
     // Mode d'emploi :
-    //
+    // Renvoie la commande de création du cercle
     // Contrat :
-    //
+    // Aucun
 
 
 //------------------------------------------------- Surcharge d'operateurs

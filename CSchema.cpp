@@ -2,7 +2,7 @@
                            CSchema  -  description
                              -------------------
     d�but                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- R�alisation de la classe <CSchema> (fichier CSchema.cpp) -------
@@ -216,6 +216,38 @@ bool CSchema::OppositeInst(string aInst)
             break;
     }
 }
+
+
+
+//-------------------------------------------- Constructeurs - destructeur
+CSchema::CSchema ( )
+// Algorithme :
+// Trivial
+{
+    vFigure = new vectFigure;
+    historic = new CHistoric;
+
+    std::string strArr[] = {"C","R","L","PL","S","DELETE","MOVE","LIST","UNDO","REDO", "LOAD", "SAVE", "CLEAR", "COUNT", "EXIT"};
+    possibleCmd = new std::vector<std::string>(strArr, strArr + NB_CMD);
+} //----- Fin de CSchema
+
+
+CSchema::~CSchema ( )
+// Algorithme :
+// Trvial
+{
+    // Supression des elts de l'historic proprement
+    delete historic;
+
+    // Supression des figure
+    delete vFigure;
+
+} //----- Fin de ~CSchema
+
+
+//------------------------------------------------------------------ PRIVE
+
+//----------------------------------------------------- M�thodes prot�g�es
 
 bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
 // Algo : Décomposition de la commande dans les différentes sous commandes
@@ -648,34 +680,4 @@ void CSchema::showReturn (string aInst, bool bInstStatus)
         cout<<msg<<aInst<<endl;
     }
 }
-
-//-------------------------------------------- Constructeurs - destructeur
-CSchema::CSchema ( )
-// Algorithme :
-// Trivial
-{
-    vFigure = new vectFigure;
-    historic = new CHistoric;
-
-    std::string strArr[] = {"C","R","L","PL","S","DELETE","MOVE","LIST","UNDO","REDO", "LOAD", "SAVE", "CLEAR", "COUNT", "EXIT"};
-    possibleCmd = new std::vector<std::string>(strArr, strArr + NB_CMD);
-} //----- Fin de CSchema
-
-
-CSchema::~CSchema ( )
-// Algorithme :
-// Trvial
-{
-    // Supression des elts de l'historic proprement
-    delete historic;
-
-    // Supression des figure
-    delete vFigure;
-
-} //----- Fin de ~CSchema
-
-
-//------------------------------------------------------------------ PRIVE
-
-//----------------------------------------------------- M�thodes prot�g�es
 

@@ -2,7 +2,7 @@
                            CSchema  -  description
                              -------------------
     d�but                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Interface de la classe <CSchema> (fichier CSchema.h) ------

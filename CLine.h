@@ -2,7 +2,7 @@
                            CLine  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Interface de la classe <CLine> (fichier CLine.h) ------
@@ -43,9 +43,9 @@ public:
 
 	string GetCreator();
 	// Mode d'emploi :
-	//
+	// Renvoie la commande de création de la ligne
 	// Contrat :
-	//
+	// Aucun
 
 
 //------------------------------------------------- Surcharge d'operateurs
@@ -59,15 +59,15 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
     CLine (const CLine & unCLine);
     // Mode d'emploi (constructeur de copie) :
-    //
+    // Constructeur de copie de la ligne
     // Contrat :
-    //
+    // Aucun
 
     CLine(VectPoint* aVPoint) : CPolyLine(aVPoint) {};
     // Mode d'emploi :
-    //
+    // Constructeur de CLine
     // Contrat :
-    //
+    // Vérifier que aVPoint contient uniquement deux points
 
     virtual ~CLine ( );
     // Mode d'emploi :

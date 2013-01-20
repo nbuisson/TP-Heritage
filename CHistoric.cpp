@@ -2,7 +2,7 @@
                            CHistoric  -  description
                              -------------------
     d�but                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- R�alisation de la classe <CHistoric> (fichier CHistoric.cpp) -------

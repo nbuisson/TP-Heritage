@@ -2,7 +2,7 @@
                            CLine  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Realisation de la classe <CLine> (fichier CLine.cpp) -------
@@ -32,12 +32,12 @@ using namespace std;
 // Algorithme :
 //
 //{
-//} //----- Fin de Methode
+//}
 
 
 string CLine::GetCreator()
 // Algorithme :
-//
+// Trivial
 {
 	string cmd;
 	cmd += "L ";
@@ -56,7 +56,7 @@ string CLine::GetCreator()
 	cmd.replace(cmd.length()-1, 1, "");
 
 	return cmd;
-}
+} //----- Fin de Methode
 
 
 //------------------------------------------------- Surcharge d'operateurs

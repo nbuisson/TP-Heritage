@@ -2,7 +2,7 @@
                            CCircle  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Realisation de la classe <CCircle> (fichier CCircle.cpp) -------
@@ -36,7 +36,9 @@ using namespace std;
 
 bool CCircle::Move(long dX, long dY)
 // Algorithme :
-//
+// Déplace le point (si possible), puis
+// vérifie que le cercle entier est toujours
+// dans la zone de dessin
 {
     int maxLim = numeric_limits<int>::max();
     int minLim = numeric_limits<int>::min();
@@ -73,7 +75,8 @@ bool CCircle::Move(long dX, long dY)
 
 void CCircle::Select(int x1, int y1, int x2, int y2)
 // Algorithme :
-//
+// Vérifie que le centre est séléctionné, puis
+// que le reste du cercle l'est aussi
 {
 	if(center.IsSelected(x1, y1, x2, y2))
 	{
@@ -107,6 +110,8 @@ void CCircle::Select(int x1, int y1, int x2, int y2)
 
 
 string CCircle::GetCreator()
+// Algorithme :
+// Trivial
 {
     string cmd;
 
@@ -121,7 +126,7 @@ string CCircle::GetCreator()
 	cmd += intToStr.str();
 
 	return cmd;
-}
+} //----- Fin de Methode
 
 
 //------------------------------------------------- Surcharge d'operateurs

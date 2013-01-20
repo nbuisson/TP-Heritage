@@ -2,7 +2,7 @@
                            CRectangle  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Realisation de la classe <CRectangle> (fichier CRectangle.cpp) -------
@@ -69,7 +69,7 @@ void CRectangle::Select(int x1, int y1, int x2, int y2)
 
 string CRectangle::GetCreator()
 // Algorithme :
-//
+// Trivial
 {
 	string cmd;
 

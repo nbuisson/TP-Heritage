@@ -2,13 +2,7 @@
                            CHistoric  -  description
                              -------------------
     debut                : 10 déc. 2012
-    copyright            : (C) 2012 par nbuisson
-=======
-CHistoric - description
--------------------
-debut : 10 déc. 2012
-copyright : (C) 2012 par nbuisson
-=======
+    copyright            : (C) 2012 par nbuisson et pmdartus
 *************************************************************************/
 
 //---------- Interface de la classe <CHistoric> (fichier CHistoric.h) ------
@@ -49,7 +43,7 @@ public:
 
     void AddDelInst (vector<string> *aInst);
     // Mode d'emploi :
-    // Ajout d'une commande dans l'historique
+    // Ajout d'une commande de suppression dans l'historique
     // Contrat :
     // Rien
 

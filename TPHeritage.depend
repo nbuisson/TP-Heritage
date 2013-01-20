@@ -313,7 +313,7 @@
 	"CLine.h"
 	"CHistoric.h"
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\ccircle.cpp
+1358721227 source:c:\users\nicolas\documents\github\tp-heritage\ccircle.cpp
 	<iostream>
 	<fstream>
 	<sstream>
@@ -322,20 +322,20 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\ccircle.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\ccircle.h
 	<string>
 	"CFigure.h"
 	"CPoint.h"
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\cfigure.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\cfigure.h
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\cpoint.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\cpoint.h
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\cfigure.cpp
+1358721227 source:c:\users\nicolas\documents\github\tp-heritage\cfigure.cpp
 	<iostream>
 	"CFigure.h"
 
-1358700812 source:c:\users\nicolas\documents\github\tp-heritage\chistoric.cpp
+1358721227 source:c:\users\nicolas\documents\github\tp-heritage\chistoric.cpp
 	<iostream>
 	<sstream>
 	<fstream>
@@ -343,16 +343,16 @@
 	"CSchema.h"
 	<vector>
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\chistoric.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\chistoric.h
 	<vector>
 	<string>
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\cschema.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\cschema.h
 	"CHistoric.h"
 	"CFigure.h"
 	<vector>
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\cline.cpp
+1358721227 source:c:\users\nicolas\documents\github\tp-heritage\cline.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -361,25 +361,25 @@
 	"CPolyLine.h"
 	"CFigure.h"
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\cline.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\cline.h
 	<string>
 	<vector>
 	"CFigure.h"
 	"CPolyLine.h"
 	"CPoint.h"
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\cpolyline.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\cpolyline.h
 	<string>
 	<vector>
 	"CFigure.h"
 	"CPoint.h"
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\cpoint.cpp
+1358721228 source:c:\users\nicolas\documents\github\tp-heritage\cpoint.cpp
 	<iostream>
 	<limits>
 	"CPoint.h"
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\cpolyline.cpp
+1358721228 source:c:\users\nicolas\documents\github\tp-heritage\cpolyline.cpp
 	<iostream>
 	<sstream>
 	<string>
@@ -387,7 +387,7 @@
 	"CPolyLine.h"
 	"CFigure.h"
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\crectangle.cpp
+1358721228 source:c:\users\nicolas\documents\github\tp-heritage\crectangle.cpp
 	<iostream>
 	<string>
 	<sstream>
@@ -395,10 +395,27 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358691046 c:\users\nicolas\documents\github\tp-heritage\crectangle.h
+1358721278 c:\users\nicolas\documents\github\tp-heritage\crectangle.h
 	"CFigure.h"
 	"CPoint.h"
 
-1358691046 source:c:\users\nicolas\documents\github\tp-heritage\tpheritage.cpp
+1358721228 source:c:\users\nicolas\documents\github\tp-heritage\tpheritage.cpp
 	"CSchema.h"
+
+1358721228 source:c:\users\nicolas\documents\github\tp-heritage\cschema.cpp
+	<iostream>
+	<string>
+	<sstream>
+	<limits>
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+	"CSchema.h"
+	"CFigure.h"
+	"CCircle.h"
+	"CRectangle.h"
+	"CPolyLine.h"
+	"CPoint.h"
+	"CLine.h"
+	"CHistoric.h"
 
