@@ -165,6 +165,10 @@ protected:
     // Contrat :
     // Rien
 
+    void showReturn (string aInst, bool bInstStatus);
+    // Mode d'emploi
+    // Renvoi ok pour les fonction qui le nécessite
+
 
 //-------------------------------------------- Constructeurs - destructeur
     CSchema ( );
@@ -185,8 +189,6 @@ protected:
     CHistoric* historic;
     vectFigure* vFigure;
     vector<string>* possibleCmd;
-    bool bFinished;
-
 };
 
 //--------------------------- Autres d�finitions d�pendantes de <CSchema>

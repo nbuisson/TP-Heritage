@@ -57,21 +57,11 @@ void CSchema::Execute()
 // Execution de la fonction tant que la commande n'est pas EXIT
 // Appel de la commande
 {
-    while (!bFinished)
+    for (;;)
     {
 		string cmd="";
 		getline(cin,cmd);
-        if(!ReadInstruction(cmd))
-
-        {
-            cout<<"ERR "<<cmd<<endl;
-        }
-        else
-        {
-            cout<<"OK "<<cmd<<endl;
-            historic->AddHistoric(cmd);
-
-        }
+        showReturn(cmd,ReadInstruction(cmd));
     }
 } //----- Fin de execute
 
@@ -614,6 +604,29 @@ void CSchema::Close ()
     exit(0);
 }
 
+void CSchema::showReturn (string aInst, bool bInstStatus)
+{
+    //Init variables
+    stringstream buf (aInst);
+    string frontChar;
+    buf >> frontChar;
+
+    // Exploitation des commandes simples
+    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="MOVE" || frontChar=="CLEAR" || frontChar == "LOAD" || frontChar == "SAVE" || frontChar == "UNDO" || frontChar == "REDO")
+    {
+        string msg;
+        if (bInstStatus)
+        {
+            msg="OK ";
+        }
+        else
+        {
+            msg="ERR ";
+        }
+        cout<<msg<<aInst<<endl;
+    }
+}
+
 //-------------------------------------------- Constructeurs - destructeur
 CSchema::CSchema ( )
 // Algorithme :
@@ -624,8 +637,6 @@ CSchema::CSchema ( )
 
     std::string strArr[] = {"C","R","L","PL","S","DELETE","MOVE","LIST","UNDO","REDO", "LOAD", "SAVE", "CLEAR", "COUNT", "EXIT"};
     possibleCmd = new std::vector<std::string>(strArr, strArr + NB_CMD);
-
-    bFinished=false;
 } //----- Fin de CSchema
 
 
