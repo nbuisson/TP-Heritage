@@ -37,9 +37,20 @@ using namespace std;
 const int maxInt = numeric_limits<int>::max();
 const int minInt = numeric_limits<int>::min();
 
+CSchema *CSchema::singleton = NULL;
+
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- M�thodes publiques
+
+CSchema *CSchema::getInstance()
+{
+    if(!singleton)
+    {
+        singleton = new CSchema;
+    }
+    return singleton;
+}
 
 void CSchema::Execute()
 // Algorithme :
@@ -394,6 +405,7 @@ bool CSchema::OppositeMove(vector<string> aInst)
         }
         it++;
     }
+    return true;
 }
 
 void CSchema::ShowList ()
@@ -614,8 +626,6 @@ CSchema::CSchema ( )
     possibleCmd = new std::vector<std::string>(strArr, strArr + NB_CMD);
 
     bFinished=false;
-
-    Execute();
 } //----- Fin de CSchema
 
 

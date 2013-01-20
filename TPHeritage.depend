@@ -285,34 +285,17 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358628421 source:c:\users\pm\documents\github\tp-heritage\tpheritage.cpp
+1358678149 source:c:\users\pm\documents\github\tp-heritage\tpheritage.cpp
 	"CSchema.h"
-	"CRectangle.h"
-	"CCircle.h"
-	"CFigure.h"
-	"CPoint.h"
-	"CPolyLine.h"
-	"CLine.h"
-	<iostream>
-	<string>
-	<limits>
-	<vector>
-	"CSchema.h"
-	"CRectangle.h"
-	"CCircle.h"
-	"CFigure.h"
-	<iostream>
-	<string>
-	<limits>
 
-1358675777 c:\users\pm\documents\github\tp-heritage\cschema.h
+1358678006 c:\users\pm\documents\github\tp-heritage\cschema.h
 	"CHistoric.h"
 	"CFigure.h"
 	<vector>
 
 1357575626 .h"
 
-1358676048 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358678177 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

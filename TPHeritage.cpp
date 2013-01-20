@@ -17,7 +17,9 @@ using namespace std;
 
 int main()
 {
-	CSchema * mySchema = new CSchema ();
+	CSchema *mySchema;
+	mySchema = CSchema::getInstance();
+	mySchema->Execute();
 	return 0;
 }
 

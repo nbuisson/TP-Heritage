@@ -33,6 +33,13 @@ class CSchema
 //----------------------------------------------------------------- PUBLIC
 
 public:
+//----------------------------------------------------- M�thodes singleton
+    static CSchema * getInstance();
+    // Mode d'emploi :
+    // Création / Accès au singleton
+    // Contrat :
+    // Rien
+
 //----------------------------------------------------- M�thodes publiques
     void Execute();
     // Mode d'emploi :
@@ -54,9 +61,16 @@ public:
     // Contrat :
     // Commende passée en paramêtre valide car déjà utilisée une fois
 
-	bool VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd);
+
+//------------------------------------------------------------------ PRIVE
+
+protected:
+//----------------------------------------------------- M�thodes prot�g�es
+
+    bool VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd);
 	// Mode d'emploi :
-	// Vérification de la syntaxe de la commande (nombre d'arg. valide / validité des arguments)
+	// Vérification de la syntaxe de la commande (nombre d'arg.
+    // valide / validité des arguments)
 	// Contrat :
 	// Rien
 
@@ -65,24 +79,6 @@ public:
     // Lister les descripteurs des objets
     // Contrat :
     // Rien
-
-//-------------------------------------------- Constructeurs - destructeur
-    CSchema ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    virtual ~CSchema ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-//------------------------------------------------------------------ PRIVE
-
-protected:
-//----------------------------------------------------- M�thodes prot�g�es
 
     bool Circle(vector<string> aInst);
     // Mode d'emploi :
@@ -169,7 +165,23 @@ protected:
     // Contrat :
     // Rien
 
+
+//-------------------------------------------- Constructeurs - destructeur
+    CSchema ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    virtual ~CSchema ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 //----------------------------------------------------- Attributs prot�g�s
+    static CSchema * singleton;
+
     CHistoric* historic;
     vectFigure* vFigure;
     vector<string>* possibleCmd;
