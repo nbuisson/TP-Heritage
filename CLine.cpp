@@ -45,14 +45,16 @@ string CLine::GetCreator()
 	int xN;
 	int yN;
 	VectPoint::iterator itPoint = vPoint->begin();
+
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
 	    intToStr.str("");
-		itPoint->GetXY(xN, yN);
+		(*itPoint)->GetXY(xN, yN);
         intToStr << xN << " " << yN << " ";
         cmd += intToStr.str();
 	}
 	cmd.replace(cmd.length()-1, 1, "");
+
 	return cmd;
 }
 
@@ -93,7 +95,7 @@ CLine::~CLine ( )
 #ifdef MAP
     cout << "Appel au destructeur de <CLine>" << endl;
 #endif
-    //delete vPoint;
+    delete vPoint;
 } //----- Fin de ~CLine
 
 

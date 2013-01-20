@@ -54,6 +54,7 @@ void CFigure::Unselect()
 
 
 //-------------------------------------------- Constructeurs - destructeur
+
 CFigure::CFigure ( const CFigure & unCFigure )
 // Algorithme :
 //
@@ -62,7 +63,6 @@ CFigure::CFigure ( const CFigure & unCFigure )
     cout << "Appel au constructeur de copie de <CFigure>" << endl;
 #endif
 } //----- Fin de CFigure (constructeur de copie)
-
 
 CFigure::CFigure ( )
 // Algorithme :

@@ -12,8 +12,8 @@
 //-------------------------------------------------------- Include systeme
 //#include "stdafx.h"
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -39,7 +39,8 @@ bool CPolyLine::Move(long dX, long dY)
 // Trivial
 {
 	VectPoint::iterator itPoint = vPoint->begin();
-	for( ; (itPoint != vPoint->end()) && (itPoint->Move(dX, dY)) ; itPoint++)
+
+	for( ; (itPoint != vPoint->end()) && ((*itPoint)->Move(dX, dY)) ; itPoint++)
 	{
 	}
 	if(itPoint == vPoint->end())
@@ -58,7 +59,7 @@ void CPolyLine::Select(int x1, int y1, int x2, int y2)
 //
 {
 	VectPoint::iterator itPoint = vPoint->begin();
-	for( ; (itPoint != vPoint->end()) && (itPoint->IsSelected(x1, y1, x2, y2)) ; itPoint++)
+	for( ; (itPoint != vPoint->end()) && ((*itPoint)->IsSelected(x1, y1, x2, y2)) ; itPoint++)
 	{
 	}
 	if(itPoint == vPoint->end())
@@ -77,7 +78,9 @@ string CPolyLine::GetCreator()
 //
 {
 	string cmd;
+
 	cmd += "PL ";
+
 	stringstream intToStr;
 	int xN;
 	int yN;
@@ -85,11 +88,12 @@ string CPolyLine::GetCreator()
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
 	    intToStr.str("");
-		itPoint->GetXY(xN, yN);
+		(*itPoint)->GetXY(xN, yN);
         intToStr << xN << " " << yN << " ";
         cmd += intToStr.str();
 	}
 	cmd.replace(cmd.length()-1, 1, "");
+
 	return cmd;
 }
 
@@ -112,15 +116,6 @@ CPolyLine::CPolyLine(const CPolyLine & unCPolyLine) // TODO : faire le construct
 #endif
 } //----- Fin de CPolyLine (constructeur de copie)
 
-
-/*CPolyLine::CPolyLine()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <CPolyLine>" << endl;
-#endif
-} //----- Fin de CPolyLine*/
 
 
 CPolyLine::~CPolyLine ()

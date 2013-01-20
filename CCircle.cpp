@@ -50,7 +50,6 @@ bool CCircle::Move(long dX, long dY)
     Select(minLim, minLim, maxLim, maxLim);
 
     int tempX; int tempY; center.GetXY(tempX, tempY);
-    cout << "x : " << tempX << " ; y : " << tempY << endl;
 
     if (isSelected && ok)
     {
@@ -142,6 +141,7 @@ CCircle::CCircle ( const CCircle & unCCircle ) : center(unCCircle.center)
     cout << "Appel au constructeur de copie de <CCircle>" << endl;
 #endif
     rayon = unCCircle.rayon;
+    isSelected=false;
 } //----- Fin de CCircle (constructeur de copie)
 
 

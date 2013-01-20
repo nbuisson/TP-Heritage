@@ -1,0 +1,35 @@
+#C 0 0 1
+OK C 0 0 1
+#C 0 0 2
+OK C 0 0 2
+#R 2 2 3 3
+OK R 2 2 3 3
+#OK R 3 2 2 3
+OK R 3 2 2 3
+#L 0 0 3 3
+OK L 0 0 3 3
+#PL 0 0 3 3 3 0 0 0
+OK PL 0 0 3 3 3 0 0 0
+#LIST
+PL 0 0 3 3 3 0 0 0
+# MOVE 0 0
+OK MOVE 0 0
+#S 0 0 5 5
+4
+#DELETE 
+4
+#LIST
+#SAVE a.txt
+OK SAVE a.txt
+#S -10 -10 10 10
+2
+#MOVE 5 5
+OK MOVE 5 5
+# LOAD a.txt
+OK LOAD a.txt
+#LIST
+C 0 0 1
+C 0 0 2
+#COUNT
+4
+#EXIT

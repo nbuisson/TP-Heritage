@@ -8,6 +8,7 @@ CHistoric - description
 -------------------
 debut : 10 déc. 2012
 copyright : (C) 2012 par nbuisson
+=======
 *************************************************************************/
 
 //---------- Interface de la classe <CHistoric> (fichier CHistoric.h) ------
@@ -39,7 +40,8 @@ class CHistoric
 public:
 
 //----------------------------------------------------- Methodes publiques
-    void AddHistoric (vectCommande aVectCommande);
+
+    void AddHistoric (string aInst);
     // Mode d'emploi :
     // Ajout d'une commande dans l'historique
     // Contrat :
@@ -77,6 +79,8 @@ public:
 
 protected:
 //----------------------------------------------------- Methodes protegees
+    void DisplayHist();
+
 
 //----------------------------------------------------- Attributs proteges
     vectStack* vStack;
@@ -88,4 +92,3 @@ protected:
 //--------------------------- Autres d�finitions d�pendantes de <CHistoric>
 
 #endif // CHISTORIC_H_
-
