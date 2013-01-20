@@ -40,6 +40,12 @@ public:
 	// Contrat :
 	//
 
+	void SetSelected();
+	// Mode d'emploi
+	//
+	// Contrat :
+	//
+
 
 	bool GetisSelected();
 	// Mode d'emploi :

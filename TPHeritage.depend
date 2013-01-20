@@ -219,19 +219,20 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358676196 c:\users\pm\documents\github\tp-heritage\cfigure.h
+1358681328 c:\users\pm\documents\github\tp-heritage\cfigure.h
 
 1358675315 c:\users\pm\documents\github\tp-heritage\cpoint.h
 
-1358676209 source:c:\users\pm\documents\github\tp-heritage\cfigure.cpp
+1358681791 source:c:\users\pm\documents\github\tp-heritage\cfigure.cpp
 	<iostream>
 	"CFigure.h"
 
-1358675777 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
+1358680995 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
 	<iostream>
 	<sstream>
 	<fstream>
 	"CHistoric.h"
+	"CSchema.h"
 	<vector>
 
 1358676274 c:\users\pm\documents\github\tp-heritage\chistoric.h
@@ -285,7 +286,7 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358678149 source:c:\users\pm\documents\github\tp-heritage\tpheritage.cpp
+1358679352 source:c:\users\pm\documents\github\tp-heritage\tpheritage.cpp
 	"CSchema.h"
 
 1358678984 c:\users\pm\documents\github\tp-heritage\cschema.h
@@ -295,7 +296,7 @@
 
 1357575626 .h"
 
-1358678177 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358681819 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

@@ -17,6 +17,7 @@ using namespace std;
 
 int main()
 {
+    // Intialisation de l'application
 	CSchema *mySchema;
 	mySchema = CSchema::getInstance();
 	mySchema->Execute();

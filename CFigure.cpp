@@ -29,6 +29,13 @@ using namespace std;
 //{
 //} //----- Fin de Methode
 
+void CFigure::SetSelected()
+// Algorithme :
+// Trivial
+{
+    isSelected = true;
+}
+
 bool CFigure::GetisSelected()
 // Algorithme :
 // Trivial

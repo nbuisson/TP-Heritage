@@ -127,11 +127,17 @@ bool CSchema::ReadInstruction (string aInst)
 				return true;
 				break;
 			case 8:
-				return historic->Undo();
-				break;
+            {
+                 UnSelectAll();
+                return historic->Undo();
+                break;
+            }
 			case 9:
-				return historic->Redo();
-				break;
+            {
+                 UnSelectAll();
+                return historic->Redo();
+                break;
+            }
 			case 10:
 				return Load(aVectInst);
 				break;
@@ -488,6 +494,8 @@ bool CSchema::Load(vector<string> aInst)
     }
     else
     {
+        UnSelectAll();
+
         string buf;
         while(myFile.good())
         {
@@ -509,6 +517,10 @@ bool CSchema::Load(vector<string> aInst)
         {
             bPossible=false;
         }
+        else
+        {
+            ((vFigure->back()))->SetSelected();
+        }
         it++;
     }
 
@@ -522,6 +534,7 @@ bool CSchema::Load(vector<string> aInst)
     // Une commande de passe passe pas : annulation des commandes précédentes
     else
     {
+        UnSelectAll();
         vector<string>::iterator itRedo = it;
         while(it!=StackCmd->begin())
         {

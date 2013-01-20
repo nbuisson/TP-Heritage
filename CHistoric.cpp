@@ -17,6 +17,7 @@
 
 //------------------------------------------------------ Include personnel
 #include "CHistoric.h"
+#include "CSchema.h"
 #include <vector>
 using namespace std;
 
@@ -93,8 +94,8 @@ bool CHistoric::Undo ()
         #ifdef MAP
         DisplayHist ();
         #endif
-
         it--;
+
         return true;
     }
 }
