@@ -1,0 +1,18 @@
+C 0 0 1
+C 0 0 2
+R 2 2 3 3
+R 3 2 2 3
+L 0 0 3 3
+PL 0 0 3 3 3 0 0 0
+LIST
+MOVE 0 0
+S 0 0 5 5
+DELETE 
+LIST
+SAVE a.txt
+S -10 -10 10 10
+MOVE 5 5
+LOAD a.txt
+LIST
+COUNT
+EXIT

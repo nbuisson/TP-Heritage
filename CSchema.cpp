@@ -57,6 +57,7 @@ void CSchema::Execute()
         else
         {
             cout<<"OK "<<cmd<<endl;
+            historic->AddHistoric(cmd);
         }
     }
 } //----- Fin de execute
@@ -330,7 +331,7 @@ bool CSchema::Move(vector<string> aInst)
         cout<<"# Invalid Move"<<endl;
         return false;
     }
-}
+    }
 
 void CSchema::ShowList ()
 // Algorithme :
@@ -375,13 +376,20 @@ bool CSchema::Select(vector<string> aInst)
     int x2 = VectStringToInt(aInst [3]);
     int y2 = VectStringToInt(aInst [4]);
 
+    int nbSelected = 0;
+
     vectFigure::iterator it = vFigure->begin();
     while (it!=vFigure->end())
     {
         (*it)->Select(x1,y1,x2,y2);
+        if ((*it)->GetisSelected())
+        {
+            nbSelected++;
+        }
         it++;
     }
 
+    cout<<nbSelected<<endl;
     return true;
 }
 
@@ -486,6 +494,7 @@ void CSchema::Count()
 }
 
 void CSchema::Close ()
+// Algo : trivial
 {
     Clear(true);
     exit(0);

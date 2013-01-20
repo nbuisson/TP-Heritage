@@ -34,7 +34,7 @@ class CHistoric
 public:
 
 //----------------------------------------------------- Methodes publiques
-    void AddHistoric (vectCommande aVectCommande);
+    void AddHistoric (string aInst);
     // Mode d'emploi :
     // Ajout d'une commande dans l'historique
     // Contrat :

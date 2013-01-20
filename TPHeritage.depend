@@ -117,12 +117,12 @@
 	<iostream>
 	"CFigure.h"
 
-1358628421 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
+1358668167 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
 	<iostream>
 	"CHistoric.h"
 	<vector>
 
-1358628421 c:\users\pm\documents\github\tp-heritage\chistoric.h
+1358668075 c:\users\pm\documents\github\tp-heritage\chistoric.h
 	<vector>
 	<string>
 
@@ -173,7 +173,7 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358627523 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358668182 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>
