@@ -124,10 +124,10 @@ bool CSchema::ReadInstruction (string aInst)
 				return true;
 				break;
 			case 8:
-				//return Undo();
+				return historic->Undo();
 				break;
 			case 9:
-				//return Redo();
+				return historic->Redo();
 				break;
 			case 10:
 				return Load(aVectInst);
@@ -409,7 +409,7 @@ bool CSchema::Load(vector<string> aInst)
 {
     if (!VerifySyntax(aInst,1, true))
     {
-        cout<<"#Wrong parameter(s)"<<endl;
+        cout<<"# Wrong parameter(s)"<<endl;
         return false;
     }
 
@@ -417,6 +417,7 @@ bool CSchema::Load(vector<string> aInst)
     if(!myFile.is_open())
     {
         cout<<"# Impossible to open :"<<aInst[1]<<endl;
+        return false;
     }
     else
     {
@@ -428,6 +429,7 @@ bool CSchema::Load(vector<string> aInst)
             StackCmd->push_back(buf);
         }
         myFile.close();
+        return true;
     }
 }
 

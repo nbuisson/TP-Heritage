@@ -72,6 +72,7 @@ public:
 
 protected:
 //----------------------------------------------------- Methodes protegees
+    void DisplayHist();
 
 //----------------------------------------------------- Attributs proteges
     vectStack* vStack;

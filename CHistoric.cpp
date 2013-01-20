@@ -34,38 +34,48 @@ void CHistoric::AddHistoric (string aInst)
 // Si la commande est complexe, il faut réaliser la lecture du fichier
 // dans le but d'enregister les commandes
 {
+    //Init variables
     stringstream buf (aInst);
     string frontChar;
     buf >> frontChar;
 
-    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="CLEAR" || frontChar=="MOVE" || frontChar=="DELETE")
+    // Exploitation des commandes simples
+    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="CLEAR" || frontChar=="MOVE" || frontChar=="DELETE" || frontChar == "LOAD")
     {
+        while (it!=vStack->end())
+        {
+            it = vStack->erase(it);
+        }
+
         vectCommande * currentCmd = new vectCommande;
-        currentCmd->push_back(aInst);
+
+        if( frontChar == "LOAD" )
+        {
+            string fileName;
+            buf>>fileName;
+
+            ifstream myFile (fileName.c_str());
+            if(myFile.is_open())
+            {
+                string buf;
+                while(myFile.good())
+                {
+                    getline(myFile,buf);
+                    currentCmd->push_back(aInst);
+                }
+                myFile.close();
+            }
+        }
+        else
+        {
+            currentCmd->push_back(aInst);
+        }
 
         vStack->push_back(currentCmd);
+        it=vStack->end();
     }
 
-    else if( frontChar == "LOAD" )
-    {
-        string fileName;
-        buf>>fileName;
-
-        ifstream myFile (fileName.c_str());
-        if(myFile.is_open())
-        {
-            vectCommande * currentCmd = new vectCommande;
-            string buf;
-            while(myFile.good())
-            {
-                getline(myFile,buf);
-                currentCmd->push_back(aInst);
-            }
-            vStack->push_back(currentCmd);
-            myFile.close();
-        }
-    }
-
+    // Vérifier l'éat des la pile de commande
     if (vStack->size()>20)
     {
         vStack->erase(vStack->begin());
@@ -74,14 +84,37 @@ void CHistoric::AddHistoric (string aInst)
 
 bool CHistoric::Undo ()
 {
-    if(vStack->empty())
+    if(it==vStack->begin())
     {
         cout<<"# No instruction to undo"<<endl;
         return false;
     }
     else
     {
+        #ifdef MAP
+        DisplayHist ();
+        #endif
 
+        it--;
+        return true;
+    }
+}
+
+bool CHistoric::Redo ()
+{
+    if(it == vStack->end())
+    {
+        cout<<"# No instruction to redo"<<endl;
+        return false;
+    }
+    else
+    {
+        #ifdef MAP
+        DisplayHist ();
+        #endif
+
+        it++;
+        return true;
     }
 }
 
@@ -123,4 +156,24 @@ CHistoric::~CHistoric ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- M�thodes prot�g�es
+
+void CHistoric::DisplayHist()
+//Algo : affichage de la pile de commande jusqu'à l'endroit ou la pile
+//est actuellement
+{
+    cout<<"Il reste dans la pile :"<<endl;
+    vectStack::iterator itPrint = vStack->begin();
+    while (itPrint!=it)
+    {
+        vectCommande::iterator itCmd = (*itPrint)->begin();
+        while (itCmd!=(*itPrint)->end())
+        {
+            cout<<(*itCmd)<<" ";
+            itCmd++;
+        }
+        cout<<endl;
+        cout<<endl;
+        itPrint++;
+    }
+}
 
