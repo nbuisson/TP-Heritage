@@ -61,7 +61,12 @@ void CSchema::Execute()
     {
 		string cmd="";
 		getline(cin,cmd);
-        showReturn(cmd,ReadInstruction(cmd));
+		bool instStatus = ReadInstruction(cmd);
+        showReturn(cmd,instStatus);
+        if(instStatus)
+        {
+            historic->AddHistoric(cmd);
+        }
     }
 } //----- Fin de execute
 

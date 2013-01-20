@@ -227,7 +227,7 @@
 	<iostream>
 	"CFigure.h"
 
-1358680995 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
+1358683367 source:c:\users\pm\documents\github\tp-heritage\chistoric.cpp
 	<iostream>
 	<sstream>
 	<fstream>
@@ -296,7 +296,7 @@
 
 1357575626 .h"
 
-1358681819 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
+1358682418 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

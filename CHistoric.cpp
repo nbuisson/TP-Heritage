@@ -23,6 +23,8 @@ using namespace std;
 
 //------------------------------------------------------------- Constantes
 
+#define MAP
+
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- M�thodes publiques
@@ -91,11 +93,22 @@ bool CHistoric::Undo ()
     }
     else
     {
+        it--;
+
         #ifdef MAP
         DisplayHist ();
         #endif
-        it--;
 
+        CSchema *mySchema;
+        mySchema = CSchema::getInstance();
+
+        // Invert operation
+        vectCommande::iterator itCmd = (*it)->begin();
+        while (itCmd!=(*it)->end())
+        {
+            mySchema->OppositeInst(*itCmd);
+            itCmd++;
+        }
         return true;
     }
 }
@@ -109,11 +122,23 @@ bool CHistoric::Redo ()
     }
     else
     {
+
+        it++;
+
         #ifdef MAP
         DisplayHist ();
         #endif
 
-        it++;
+        CSchema *mySchema;
+        mySchema = CSchema::getInstance();
+
+        // Invert operation
+        vectCommande::iterator itCmd = (*it)->begin();
+        while (itCmd!=(*it)->end())
+        {
+            mySchema->ReadInstruction(*itCmd);
+            itCmd++;
+        }
         return true;
     }
 }
@@ -163,8 +188,12 @@ void CHistoric::DisplayHist()
 {
     cout<<"Il reste dans la pile :"<<endl;
     vectStack::iterator itPrint = vStack->begin();
-    while (itPrint!=it)
+    while (itPrint!=vStack->end())
     {
+        if (it==itPrint)
+        {
+            cout<<"-> "<<endl;
+        }
         vectCommande::iterator itCmd = (*itPrint)->begin();
         while (itCmd!=(*itPrint)->end())
         {
