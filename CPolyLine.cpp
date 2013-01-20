@@ -13,6 +13,7 @@
 //#include "stdafx.h"
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 using namespace std;
 
@@ -33,7 +34,7 @@ using namespace std;
 //} //----- Fin de Methode
 
 
-bool CPolyLine::Move(int dX, int dY)
+bool CPolyLine::Move(long dX, long dY)
 // Algorithme :
 // Trivial
 {
@@ -77,16 +78,16 @@ string CPolyLine::GetCreator()
 {
 	string cmd;
 	cmd += "PL ";
+	stringstream intToStr;
 	int xN;
 	int yN;
 	VectPoint::iterator itPoint = vPoint->begin();
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
+	    intToStr.str("");
 		itPoint->GetXY(xN, yN);
-		cmd += xN;
-		cmd += " ";
-		cmd += yN;
-		cmd += " ";
+        intToStr << xN << " " << yN << " ";
+        cmd += intToStr.str();
 	}
 	cmd.replace(cmd.length()-1, 1, "");
 	return cmd;

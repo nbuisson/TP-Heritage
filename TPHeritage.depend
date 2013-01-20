@@ -30,9 +30,10 @@
 	<vector>
 	<string>
 
-1357564828 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CLine.cpp
+1358672968 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CLine.cpp
 	<iostream>
 	<string>
+	<sstream>
 	<vector>
 	"CLine.h"
 	"CPolyLine.h"
@@ -45,15 +46,16 @@
 	"CPolyLine.h"
 	"CPoint.h"
 
-1357566192 /home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.h
+1358670494 /home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.h
 	<string>
 	<vector>
 	"CFigure.h"
 	"CPoint.h"
 
-1357564882 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.cpp
+1358671477 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CPolyLine.cpp
 	<iostream>
 	<string>
+	<sstream>
 	<vector>
 	"CPolyLine.h"
 	"CFigure.h"
@@ -81,14 +83,18 @@
 	"CHistoric.h"
 	<vector>
 
-1358267811 source:/home/nicolas/Documents/IF/3IF/TPHeritage/TPHeritage.cpp
+1358672958 source:/home/nicolas/Documents/IF/3IF/TPHeritage/TPHeritage.cpp
 	"CSchema.h"
 	"CRectangle.h"
 	"CCircle.h"
 	"CFigure.h"
+	"CPoint.h"
+	"CPolyLine.h"
+	"CLine.h"
 	<iostream>
 	<string>
 	<limits>
+	<vector>
 
 1358267854 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CPoint.cpp
 	<iostream>

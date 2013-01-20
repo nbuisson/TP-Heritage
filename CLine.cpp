@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 
 //------------------------------------------------------ Include personnel
@@ -40,16 +41,16 @@ string CLine::GetCreator()
 {
 	string cmd;
 	cmd += "L ";
+	stringstream intToStr;
 	int xN;
 	int yN;
 	VectPoint::iterator itPoint = vPoint->begin();
 	for( ; itPoint != vPoint->end() ; itPoint++)
 	{
+	    intToStr.str("");
 		itPoint->GetXY(xN, yN);
-		cmd += xN;
-		cmd += " ";
-		cmd += yN;
-		cmd += " ";
+        intToStr << xN << " " << yN << " ";
+        cmd += intToStr.str();
 	}
 	cmd.replace(cmd.length()-1, 1, "");
 	return cmd;
@@ -92,6 +93,7 @@ CLine::~CLine ( )
 #ifdef MAP
     cout << "Appel au destructeur de <CLine>" << endl;
 #endif
+    //delete vPoint;
 } //----- Fin de ~CLine
 
 

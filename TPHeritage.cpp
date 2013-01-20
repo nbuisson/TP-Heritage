@@ -12,16 +12,20 @@
 #include "CRectangle.h"
 #include "CCircle.h"
 #include "CFigure.h"
+#include "CPoint.h"
+#include "CPolyLine.h"
+#include "CLine.h"
 
 //-------------------------------------------------------- Include syst�me
 using namespace std;
 #include <iostream>
 #include <string>
 #include <limits>
+#include <vector>
 
 int main()
 {
-    int intLim = numeric_limits<int>::max();
+    long intLim = numeric_limits<int>::min();
     //cout << intLim << endl;
 
     /*
@@ -91,7 +95,7 @@ int main()
     delete c2;
     delete c1;*/
 
-
+    /*
 	// Tests de CRectangle
 
 	int iX1r = 2;
@@ -118,6 +122,91 @@ int main()
     moveR = r1->Move(intLim,intLim);
     cout << "moveR : " << moveR << endl;
     cout << r1->GetCreator() << "\n" << endl;
+
+    delete r1;*/
+
+
+    /*
+    //Tests de CPolyLine
+    VectPoint* vPt = new VectPoint();
+
+    CPoint pt = CPoint(0,0);
+
+    for(int i = 1 ; i <= 10 ; i++)
+    {
+        vPt->push_back(pt);
+        pt = CPoint(i,i);
+    }
+
+    VectPoint::iterator it = vPt->begin();
+    int xPt;
+    int yPt;
+
+    //for( ; it != vPt->end() ; it++)
+    //{
+    //    (*it).GetXY(xPt,yPt);
+    //    cout << xPt << " ; " << yPt << "\n" << endl;
+    //}
+
+    CFigure* pl1 = new CPolyLine(vPt);
+
+    string plCreate = pl1->GetCreator();
+    cout << plCreate << endl;
+
+    pl1->Select(10, 10, 9, -1);
+    bool okPl = pl1->GetisSelected();
+    cout << "Select : " << okPl << "\n" << endl;
+
+    okPl = pl1->Move(1,1);
+    cout << "Move : " << okPl << endl;
+    plCreate = pl1->GetCreator();
+    cout << plCreate << "\n" << endl;
+
+    okPl = pl1->Move(intLim,-intLim);
+    cout << "Move : " << okPl << endl;
+    plCreate = pl1->GetCreator();
+    cout << plCreate << "\n" << endl;
+
+    delete pl1;
+
+    // Pour vérifier que vPt est bien détruit
+    // C'est le cas, le bout de code ci-dessous donne un segmentation fault
+    //for(it = vPt->begin() ; it != vPt->end() ; it++)
+    //{
+    //    (*it).GetXY(xPt,yPt);
+    //    cout << xPt << " ; " << yPt << "\n" << endl;
+    //}*/
+
+
+    /*
+    //Tests de CLine
+    VectPoint* vPtLine = new VectPoint();
+    CPoint ptLine = CPoint(0,0);
+    vPtLine->push_back(ptLine);
+    ptLine = CPoint(1,1);
+    vPtLine->push_back(ptLine);
+
+    CFigure* l1 = new CLine(vPtLine);
+
+    string lCreate = l1->GetCreator();
+    cout << lCreate << endl;
+
+    l1->Select(0,0,-1,-1);
+    bool okL = l1->GetisSelected();
+    cout << "Select : " << okL << "\n" << endl;
+
+    okL = l1->Move(2,4);
+    cout << "Move : " << okL << endl;
+    lCreate = l1->GetCreator();
+    cout << lCreate << "\n" << endl;
+
+
+    okL = l1->Move(intLim,intLim);
+    cout << "Move : " << okL << endl;
+    lCreate = l1->GetCreator();
+    cout << lCreate << "\n" << endl;
+
+    delete l1;*/
 
 
     /*
