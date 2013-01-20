@@ -47,6 +47,12 @@ public:
     // Contrat :
     // Rien
 
+    void AddDelInst (vector<string> *aInst);
+    // Mode d'emploi :
+    // Ajout d'une commande dans l'historique
+    // Contrat :
+    // Rien
+
     bool Undo ();
     // Mode d'emploi :
     // Renvoi la dernière commande executée

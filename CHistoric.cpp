@@ -42,7 +42,7 @@ void CHistoric::AddHistoric (string aInst)
     buf >> frontChar;
 
     // Exploitation des commandes simples
-    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="CLEAR" || frontChar=="MOVE" || frontChar=="DELETE" || frontChar == "LOAD")
+    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="MOVE" || frontChar == "LOAD")
     {
         while (it!=vStack->end())
         {
@@ -87,6 +87,23 @@ void CHistoric::AddHistoric (string aInst)
     }
 }
 
+void CHistoric::AddDelInst (vector<string> *aInst)
+{
+    while (it!=vStack->end())
+    {
+        it = vStack->erase(it);
+    }
+    aInst->insert(aInst->begin(),"DEL");
+    vStack->push_back(aInst);
+    it=vStack->end();
+
+    // Vérifier l'éat des la pile de commande
+    if (vStack->size()>20)
+    {
+        vStack->erase(vStack->begin());
+    }
+}
+
 bool CHistoric::Undo ()
 {
     if(it==vStack->begin())
@@ -107,10 +124,21 @@ bool CHistoric::Undo ()
 
         // Invert operation
         vectCommande::iterator itCmd = (*it)->begin();
-        while (itCmd!=(*it)->end())
+        if (*itCmd=="DEL")
         {
-            mySchema->OppositeInst(*itCmd);
-            itCmd++;
+            while (itCmd!=(*it)->end())
+            {
+                mySchema->ReadInstruction(*itCmd);
+                itCmd++;
+            }
+        }
+        else
+        {
+            while (itCmd!=(*it)->end())
+            {
+                mySchema->OppositeInst(*itCmd);
+                itCmd++;
+            }
         }
         return true;
     }

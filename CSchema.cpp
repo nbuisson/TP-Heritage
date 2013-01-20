@@ -274,10 +274,10 @@ bool CSchema::Circle(vector<string> aInst)
     int y = VectStringToInt(aInst [2]);
     int radius = VectStringToInt(aInst [3]);
 
-	double xMax = (double)x+(double)radius;
-	double xMin = (double)x-(double)radius;
-	double yMax = (double)y+(double)radius;
-	double yMin = (double)y-(double)radius;
+	long xMax = (long)x+(long)radius;
+	long xMin = (long)x-(long)radius;
+	long yMax = (long)y+(long)radius;
+	long yMin = (long)y-(long)radius;
 
 	// Gestion du fait que le rayon est en dehors du cadre de travail
 	if (xMax>maxInt || xMin<minInt || yMax>maxInt || yMin<minInt)
@@ -589,15 +589,18 @@ void CSchema::Clear(bool all)
 {
     int nbDelete=0;
 	vectFigure::iterator it = vFigure->begin();
+	vector<string> * eraseVect = new vector<string>;
     while (it!=vFigure->end())
     {
 		if ((*it)->GetisSelected())
 		{
+		    eraseVect->push_back((*it)->GetCreator());
 			it = vFigure->erase(it);
 			nbDelete++;
 		}
 		else if (all)
 		{
+		    eraseVect->push_back((*it)->GetCreator());
 			it = vFigure->erase(it);
 			nbDelete++;
 		}
@@ -606,6 +609,7 @@ void CSchema::Clear(bool all)
 		    it++;
 		}
     }
+    historic->AddDelInst(eraseVect);
     cout<<nbDelete<<endl;
 }
 
