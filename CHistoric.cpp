@@ -126,6 +126,7 @@ bool CHistoric::Undo ()
         vectCommande::iterator itCmd = (*it)->begin();
         if (*itCmd=="DEL")
         {
+            itCmd++;
             while (itCmd!=(*it)->end())
             {
                 mySchema->ReadInstruction(*itCmd);
@@ -162,10 +163,23 @@ bool CHistoric::Redo ()
 
         // Invert operation
         vectCommande::iterator itCmd = (*it)->begin();
-        while (itCmd!=(*it)->end())
+        if (*itCmd=="DEL")
         {
-            mySchema->ReadInstruction(*itCmd);
             itCmd++;
+            while (itCmd!=(*it)->end())
+            {
+                mySchema->OppositeInst(*itCmd);
+                itCmd++;
+            }
+
+        }
+        else
+        {
+            while (itCmd!=(*it)->end())
+            {
+                mySchema->ReadInstruction(*itCmd);
+                itCmd++;
+            }
         }
 
         it++;
