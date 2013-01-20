@@ -47,6 +47,13 @@ public:
     // Contrat :
     // Instruction différente de EXIT
 
+    bool OppositeInst(string aInst);
+    // Mode d'emploi :
+    // Lecture de l'instruction et réalisation de l'instruction inverse
+    // Paramètres de l'instruction passé en par aInst
+    // Contrat :
+    // Commende passée en paramêtre valide car déjà utilisée une fois
+
 	bool VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd);
 	// Mode d'emploi :
 	// Vérification de la syntaxe de la commande (nombre d'arg. valide / validité des arguments)
@@ -127,6 +134,8 @@ protected:
     // Renvoi la validité du déplament
     // Contrat :
     // Rien
+
+    bool OppositeMove(vector<string> aInst);
 
     void UnSelectAll ();
     // Mode d'emploi :

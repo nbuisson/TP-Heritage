@@ -156,6 +156,52 @@ bool CSchema::ReadInstruction (string aInst)
 
 }
 
+bool CSchema::OppositeInst(string aInst)
+{
+    vector<string> aVectInst;
+
+
+    //Cmd splitting
+    stringstream tempString (aInst);
+    string buffer;
+    while (tempString>>buffer)
+    {
+        aVectInst.push_back(buffer);
+    }
+
+    int cmdChoise=-1;
+    for(int i = 0; i<NB_CMD && cmdChoise==-1; i++)
+    {
+        if ((aVectInst.front())==(possibleCmd->at(i)))
+        {
+            cmdChoise=i;
+        }
+    }
+
+    switch (cmdChoise)
+    {
+        case 0:
+            vFigure->erase(vFigure->end()-1);
+            break;
+        case 1:
+            vFigure->erase(vFigure->end()-1);
+            break;
+        case 2:
+            vFigure->erase(vFigure->end()-1);
+            break;
+        case 3:
+            vFigure->erase(vFigure->end()-1);
+            break;
+            break;
+        case 6:
+            return OppositeMove(aVectInst);
+            break;
+        default:
+            cout << "# Unknown instruction" << endl;
+            return false;
+            break;
+    }
+}
 
 bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
 // Algo : Décomposition de la commande dans les différentes sous commandes
@@ -323,15 +369,30 @@ bool CSchema::Move(vector<string> aInst)
     else
     {
         vectFigure::iterator itRedo = it;
-        while(it!=vFigure->begin())
+        while(itRedo!=vFigure->begin())
         {
-            (*it)->Move(-VectStringToInt(aInst[1]),-VectStringToInt(aInst[2]));
-            it--;
+            (*itRedo)->Move(-VectStringToInt(aInst[1]),-VectStringToInt(aInst[2]));
+            itRedo--;
         }
         cout<<"# Invalid Move"<<endl;
         return false;
     }
+}
+
+bool CSchema::OppositeMove(vector<string> aInst)
+// Algorithme :
+// Même que Move
+{
+    vectFigure::iterator it = vFigure->begin();
+    while (it!=vFigure->end())
+    {
+        if ((*it)->GetisSelected())
+        {
+            (*it)->Move(-VectStringToInt(aInst[1]),-VectStringToInt(aInst[2]));
+        }
+        it++;
     }
+}
 
 void CSchema::ShowList ()
 // Algorithme :
@@ -413,7 +474,9 @@ bool CSchema::Load(vector<string> aInst)
         return false;
     }
 
+    // Recup des cmds du fichier
     ifstream myFile (aInst[1].c_str());
+    vector<string> * StackCmd = new vector<string>;
     if(!myFile.is_open())
     {
         cout<<"# Impossible to open :"<<aInst[1]<<endl;
@@ -421,7 +484,6 @@ bool CSchema::Load(vector<string> aInst)
     }
     else
     {
-        vector<string> * StackCmd = new vector<string>;
         string buf;
         while(myFile.good())
         {
@@ -431,6 +493,40 @@ bool CSchema::Load(vector<string> aInst)
         myFile.close();
         return true;
     }
+
+    // Tentative d'execution des cmds
+    bool bPossible = true;
+    vector<string>::iterator it = StackCmd->begin();
+    while (it!=StackCmd->end() && bPossible)
+    {
+        if (!ReadInstruction(*it))
+        {
+            bPossible=false;
+        }
+        it++;
+    }
+
+    // Toutes les commandes passent
+    if (bPossible)
+    {
+        delete StackCmd;
+        return true;
+    }
+
+    // Une commande de passe passe pas : annulation des commandes précédentes
+    else
+    {
+        vector<string>::iterator itRedo = it;
+        while(it!=StackCmd->begin())
+        {
+            OppositeInst(*it);
+            it--;
+        }
+        cout<<"# Invalid Cmd"<<endl;
+        delete StackCmd;
+        return false;
+    }
+
 }
 
 bool CSchema::Save(vector<string> aInst)
