@@ -63,7 +63,10 @@ void CHistoric::AddHistoric (string aInst)
                 while(myFile.good())
                 {
                     getline(myFile,buf);
-                    currentCmd->push_back(aInst);
+                    if (!buf.empty() && buf[0]!='#')
+                    {
+                        currentCmd->push_back(buf);
+                    }
                 }
                 myFile.close();
             }
@@ -122,9 +125,6 @@ bool CHistoric::Redo ()
     }
     else
     {
-
-        it++;
-
         #ifdef MAP
         DisplayHist ();
         #endif
@@ -139,6 +139,8 @@ bool CHistoric::Redo ()
             mySchema->ReadInstruction(*itCmd);
             itCmd++;
         }
+
+        it++;
         return true;
     }
 }

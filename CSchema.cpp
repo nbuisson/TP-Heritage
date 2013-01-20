@@ -133,14 +133,14 @@ bool CSchema::ReadInstruction (string aInst)
 				break;
 			case 8:
             {
-                 UnSelectAll();
                 return historic->Undo();
+                UnSelectAll();
                 break;
             }
 			case 9:
             {
-                 UnSelectAll();
                 return historic->Redo();
+                UnSelectAll();
                 break;
             }
 			case 10:
@@ -211,7 +211,7 @@ bool CSchema::OppositeInst(string aInst)
             return OppositeMove(aVectInst);
             break;
         default:
-            cout << "# Unknown instruction : doesn't modify elements states, please remove the instruction" << endl;
+            cout << "# Unknown instruction : doesn't modify elements states, please remove :"<<aInst<< endl;
             return false;
             break;
     }
