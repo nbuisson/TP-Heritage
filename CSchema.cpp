@@ -79,7 +79,7 @@ bool CSchema::ReadInstruction (string aInst)
 			return false;
 		}
 
-		CreateCircle(aInst);
+		//CreateCircle(aInst);
 
     }
 	else if(cmdCall=="R")
@@ -116,7 +116,7 @@ bool CSchema::ReadInstruction (string aInst)
     }
     else if(cmdCall=="DELETE")
     {
-		Clear(false);
+		//Clear(false);
     }
     else if(cmdCall=="MOVE")
     {
@@ -155,7 +155,7 @@ bool CSchema::ReadInstruction (string aInst)
     }
     else if(cmdCall=="CLEAR")
     {
-		Clear(true);
+		//Clear(true);
     }
     else if(cmdCall=="COUNT")
     {
@@ -239,7 +239,7 @@ void CSchema::AnalyzeError (string aInst)
 
 }
 
-bool CSchema::CreateCircle(string aInst)
+/*bool CSchema::CreateCircle(string aInst)
 {
 	// Création des variable
 	istringstream inst (aInst);
@@ -259,15 +259,15 @@ bool CSchema::CreateCircle(string aInst)
 	// Gestion du fait que le rayon est en dehors du cadre de travail
 	if (xMax>maxInt || xMin<minInt || yMax>maxInt || yMin<minInt)
 	{
-		/*CCercle * aCercle = new Ccercle (x,y,radius);
-		vectFigure.pushback (CCercle);*/
+    CCercle * aCercle = new Ccercle (x,y,radius);
+		vectFigure.pushback (CCercle);
 		return true;
 	}
 	else
 	{
 		return false;
 	}
-}
+}*/
 
 void CSchema::ShowList ()
 // Algorithme :
@@ -282,7 +282,7 @@ void CSchema::ShowList ()
     }*/
 }
 
-void CSchema::Clear(bool all)
+/*void CSchema::Clear(bool all)
 // Algorithme :
 // Parcourt de la liste et effacer toute les figure ou celles selectionnées
 {
@@ -301,9 +301,9 @@ void CSchema::Clear(bool all)
 		{
 			delete actualFigure;
 		}
-    }*/
+    }
 
-}
+}*/
 
 //-------------------------------------------- Constructeurs - destructeur
 CSchema::CSchema ( )

@@ -31,6 +31,23 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="CCircle.cpp" />
+		<Unit filename="CCircle.h" />
+		<Unit filename="CFigure.cpp" />
+		<Unit filename="CFigure.h" />
+		<Unit filename="CHistoric.cpp" />
+		<Unit filename="CHistoric.h" />
+		<Unit filename="CLine.cpp" />
+		<Unit filename="CLine.h" />
+		<Unit filename="CPoint.cpp" />
+		<Unit filename="CPoint.h" />
+		<Unit filename="CPolyLine.cpp" />
+		<Unit filename="CPolyLine.h" />
+		<Unit filename="CRectangle.cpp" />
+		<Unit filename="CRectangle.h" />
+		<Unit filename="CSchema.cpp" />
+		<Unit filename="CSchema.h" />
+		<Unit filename="TPHeritage.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -3,6 +3,11 @@
                              -------------------
     debut                : 10 déc. 2012
     copyright            : (C) 2012 par nbuisson
+=======
+CHistoric - description
+-------------------
+debut : 10 déc. 2012
+copyright : (C) 2012 par nbuisson
 *************************************************************************/
 
 //---------- Interface de la classe <CHistoric> (fichier CHistoric.h) ------
