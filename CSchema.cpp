@@ -197,7 +197,7 @@ bool CSchema::OppositeInst(string aInst)
             return OppositeMove(aVectInst);
             break;
         default:
-            cout << "# Unknown instruction" << endl;
+            cout << "# Unknown instruction : doesn't modify elements states, please remove the instruction" << endl;
             return false;
             break;
     }
@@ -488,10 +488,12 @@ bool CSchema::Load(vector<string> aInst)
         while(myFile.good())
         {
             getline(myFile,buf);
-            StackCmd->push_back(buf);
+            if (!buf.empty() && buf[0]!='#')
+            {
+                StackCmd->push_back(buf);
+            }
         }
         myFile.close();
-        return true;
     }
 
     // Tentative d'execution des cmds
