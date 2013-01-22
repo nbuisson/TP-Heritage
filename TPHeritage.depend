@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1358675315 
+1358721278 
 	<sstream>
 	"CRectangle.h"
 	"CFigure.h"
@@ -53,6 +53,8 @@
 	"CRectangle.h"
 	"CFigure.h"
 	"CPoint.h"
+
+1358721278 
 
 1358267331 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CCircle.cpp
 	<iostream>
@@ -120,6 +122,8 @@
 	"CSchema.h"
 	"CHistoric.h"
 
+1358721228 .h"
+
 1358267360 /home/nicolas/Documents/IF/3IF/TPHeritage/CCircle.h
 	<limits>
 	"CCircle.h"
@@ -136,6 +140,8 @@
 1357564822 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CFigure.cpp
 	<iostream>
 	"CFigure.h"
+
+1358721228 "
 
 1357576352 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CHistoric.cpp
 
@@ -294,8 +300,6 @@
 	"CFigure.h"
 	<vector>
 
-1357575626 .h"
-
 1358717129 source:c:\users\pm\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
@@ -418,4 +422,110 @@
 	"CPoint.h"
 	"CLine.h"
 	"CHistoric.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CCircle.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<limits>
+	"CCircle.h"
+	"CFigure.h"
+	"CPoint.h"
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CCircle.h
+	<string>
+	"CFigure.h"
+	"CPoint.h"
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CFigure.h
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CPoint.h
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CFigure.cpp
+	<iostream>
+	"CFigure.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CHistoric.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	"CHistoric.h"
+	"CSchema.h"
+	<vector>
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CHistoric.h
+	<vector>
+	<string>
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CSchema.h
+	"CHistoric.h"
+	"CFigure.h"
+	<vector>
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CLine.cpp
+	<iostream>
+	<string>
+	<sstream>
+	<vector>
+	"CLine.h"
+	"CPolyLine.h"
+	"CFigure.h"
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CLine.h
+	<string>
+	<vector>
+	"CFigure.h"
+	"CPolyLine.h"
+	"CPoint.h"
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CPolyLine.h
+	<string>
+	<vector>
+	"CFigure.h"
+	"CPoint.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CPoint.cpp
+	<iostream>
+	<limits>
+	"CPoint.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CPolyLine.cpp
+	<iostream>
+	<sstream>
+	<string>
+	<vector>
+	"CPolyLine.h"
+	"CFigure.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CRectangle.cpp
+	<iostream>
+	<string>
+	<sstream>
+	"CRectangle.h"
+	"CFigure.h"
+	"CPoint.h"
+
+1358883254 /home/pmdartus/Documents/Github/TP-Heritage/CRectangle.h
+	"CFigure.h"
+	"CPoint.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/CSchema.cpp
+	<iostream>
+	<string>
+	<sstream>
+	<limits>
+	<stdio.h>
+	<stdlib.h>
+	<fstream>
+	"CSchema.h"
+	"CFigure.h"
+	"CCircle.h"
+	"CRectangle.h"
+	"CPolyLine.h"
+	"CPoint.h"
+	"CLine.h"
+	"CHistoric.h"
+
+1358883254 source:/home/pmdartus/Documents/Github/TP-Heritage/TPHeritage.cpp
+	"CSchema.h"
 

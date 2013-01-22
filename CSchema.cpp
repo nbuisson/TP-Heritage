@@ -312,7 +312,7 @@ bool CSchema::Circle(vector<string> aInst)
 	long yMin = (long)y-(long)radius;
 
 	// Gestion du fait que le rayon est en dehors du cadre de travail
-	if (xMax>maxInt || xMin<minInt || yMax>maxInt || yMin<minInt)
+	if (xMax>maxInt || xMin<minInt || yMax>maxInt || yMin<minInt || radius<0)
 	{
 		cout<<"#Wrong parameter(s)"<<endl;
 		return false;
