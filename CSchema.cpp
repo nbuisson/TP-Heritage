@@ -358,7 +358,7 @@ bool CSchema::Poly(vector<string> aInst,bool line)
     }
 
     // Vérif syntaxe
-    if (!VerifySyntax(aInst, aNbPoint, false) || (aNbPoint==-1 && (aInst.size()-1)%4!=0))
+    if (!VerifySyntax(aInst, aNbPoint, false) || (aNbPoint==-1 && (aInst.size()-1)%2!=0))
     {
         cout<<"#Wrong parameter(s)"<<endl;
         return false;
