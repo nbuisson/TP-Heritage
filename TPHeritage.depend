@@ -54,8 +54,6 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358721278 
-
 1358267331 source:/home/nicolas/Documents/IF/3IF/TPHeritage/CCircle.cpp
 	<iostream>
 	<fstream>
@@ -406,7 +404,7 @@
 1358721228 source:c:\users\nicolas\documents\github\tp-heritage\tpheritage.cpp
 	"CSchema.h"
 
-1358721228 source:c:\users\nicolas\documents\github\tp-heritage\cschema.cpp
+1359038909 source:c:\users\nicolas\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

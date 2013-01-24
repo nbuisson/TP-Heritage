@@ -285,7 +285,6 @@ bool CSchema::VerifySyntax (vector<string> aCmd, int aNbInt, bool fileCmd=false)
                 return false;
             }
 		}
-
 	}
 
 	return true;
@@ -666,7 +665,7 @@ void CSchema::showReturn (string aInst, bool bInstStatus)
     buf >> frontChar;
 
     // Exploitation des commandes simples
-    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="MOVE" || frontChar=="CLEAR" || frontChar == "LOAD" || frontChar == "SAVE" || frontChar == "UNDO" || frontChar == "REDO")
+    if (frontChar=="C" || frontChar=="R" || frontChar=="L" || frontChar=="PL" || frontChar=="MOVE" || frontChar=="CLEAR" || frontChar == "LOAD" || frontChar == "SAVE" || frontChar == "UNDO" || frontChar == "REDO" || frontChar == "DELETE")
     {
         string msg;
         if (bInstStatus)
