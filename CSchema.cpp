@@ -616,7 +616,7 @@ bool CSchema::Save(vector<string> aInst)
 
 void CSchema::Clear(bool all)
 // Algorithme :
-// Parcourt de la liste et effacer toute les figure ou celles selectionnées
+// Parcours de la liste et effacer toutes les figures ou celles selectionnées
 {
     int nbDelete=0;
 	vectFigure::iterator it = vFigure->begin();
