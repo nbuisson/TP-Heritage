@@ -641,7 +641,10 @@ void CSchema::Clear(bool all)
 		}
     }
     historic->AddDelInst(eraseVect);
-    cout<<nbDelete<<endl;
+    if(!all)
+    {
+        cout<<nbDelete<<endl;
+    }
 }
 
 void CSchema::Count()
