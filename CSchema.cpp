@@ -318,7 +318,9 @@ bool CSchema::Circle(vector<string> aInst)
 	}
 	else
 	{
+	    UnSelectAll();
 	    CCircle * aCircle = new CCircle (x,y,radius);
+	    aCircle->SetSelected();
 		vFigure->push_back(aCircle);
 		return true;
 	}
@@ -340,7 +342,10 @@ bool CSchema::Rectangle(vector<string> aInst)
     int x2 = VectStringToInt(aInst [3]);
     int y2 = VectStringToInt(aInst [4]);
 
+    UnSelectAll();
+
     CRectangle * aRectangle = new CRectangle (x1,y1,x2,y2);
+    aRectangle->SetSelected();
     vFigure->push_back(aRectangle);
     return true;
 }
@@ -372,14 +377,18 @@ bool CSchema::Poly(vector<string> aInst,bool line)
         aVectPoint->push_back(aPoint);
     }
 
+    UnSelectAll();
+
     if (line)
     {
         CLine * aLine = new CLine (aVectPoint);
+        aLine->SetSelected();
         vFigure->push_back(aLine);
     }
     else
     {
         CPolyLine * aPoly = new CPolyLine (aVectPoint);
+        aPoly->SetSelected();
         vFigure->push_back(aPoly);
     }
     return true;

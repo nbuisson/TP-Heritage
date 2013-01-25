@@ -401,10 +401,10 @@
 	"CFigure.h"
 	"CPoint.h"
 
-1358721228 source:c:\users\nicolas\documents\github\tp-heritage\tpheritage.cpp
+1359108629 source:c:\users\nicolas\documents\github\tp-heritage\tpheritage.cpp
 	"CSchema.h"
 
-1359040437 source:c:\users\nicolas\documents\github\tp-heritage\cschema.cpp
+1359044423 source:c:\users\nicolas\documents\github\tp-heritage\cschema.cpp
 	<iostream>
 	<string>
 	<sstream>

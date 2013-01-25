@@ -1,17 +1,17 @@
 #!/bin/bash
 echo -----------------------------------------------------------
-echo Tests pour le binome : $1
+echo Tests pour le binome : B3130
 echo -----------------------------------------------------------
 
 nTestCount=0
 nSuccesfulTests=0
 nStrResult="$1 "
 
-echo ADD.1
+echo ADD1
 let "nTestCount=$nTestCount+1"
-./$1 < add.1.in > temp1.txt
+./$1 < add1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB add.1.out temp2.txt
+diff -wB add1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -22,11 +22,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo ADD.2
+echo LOAD1
 let "nTestCount=$nTestCount+1"
-./$1 < add.2.in > temp1.txt
+./$1 < load1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB add.2.out temp2.txt
+diff -wB load1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -37,26 +37,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo LOAD.1
+echo SAVE1
 let "nTestCount=$nTestCount+1"
-./$1 < load.1.in > temp1.txt
-grep -v '^#' temp1.txt > temp2.txt
-diff -wB load.1.out temp2.txt
-if [ $? -eq 0 ]
-        then
-		echo PASSED
-            	let "nSuccesfulTests=$nSuccesfulTests+1"
-		nStrResult=$nStrResult" 1"
-	else
-		echo FAILED
-		nStrResult=$nStrResult" 0"
-fi
-
-echo SAVE.1
-let "nTestCount=$nTestCount+1"
-./$1 < save.1.in > temp1.txt
+./$1 < save1.in > temp1.txt
 grep -v '^#' temp.txt > temp2.txt
-diff -wB save.1.result temp2.txt
+diff -wB save1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -67,11 +52,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo MOVE.1
+echo MOVE1
 let "nTestCount=$nTestCount+1"
-./$1 < move.1.in > temp1.txt
+./$1 < move1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB move.1.out temp2.txt
+diff -wB move1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -82,11 +67,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo SELECT.1
+echo SELECT1
 let "nTestCount=$nTestCount+1"
-./$1 < select.1.in > temp1.txt
+./$1 < select1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB select.1.out temp2.txt
+diff -wB select1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -97,11 +82,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo DELETE.1
+echo DELETE1
 let "nTestCount=$nTestCount+1"
-./$1 < delete.1.in > temp1.txt
+./$1 < delete1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB delete.1.out temp2.txt
+diff -wB delete1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -112,11 +97,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo COUNT.1
+echo COUNT1
 let "nTestCount=$nTestCount+1"
-./$1 < count.1.in > temp1.txt
+./$1 < count1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB count.1.out temp2.txt
+diff -wB count1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -127,11 +112,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo UNDO.1
+echo UNDO1
 let "nTestCount=$nTestCount+1"
-./$1 < undo.1.in > temp1.txt
+./$1 < undo1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB undo.1.out temp2.txt
+diff -wB undo1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
@@ -142,71 +127,11 @@ if [ $? -eq 0 ]
 		nStrResult=$nStrResult" 0"
 fi
 
-echo UNDO.2
+echo REDO1
 let "nTestCount=$nTestCount+1"
-./$1 < undo.2.in > temp1.txt
+./$1 < redo1.in > temp1.txt
 grep -v '^#' temp1.txt > temp2.txt
-diff -wB undo.2.out temp2.txt
-if [ $? -eq 0 ]
-        then
-		echo PASSED
-            	let "nSuccesfulTests=$nSuccesfulTests+1"
-		nStrResult=$nStrResult" 1"
-	else
-		echo FAILED
-		nStrResult=$nStrResult" 0"
-fi
-
-echo REDO.1
-let "nTestCount=$nTestCount+1"
-./$1 < redo.1.in > temp1.txt
-grep -v '^#' temp1.txt > temp2.txt
-diff -wB redo.1.out temp2.txt
-if [ $? -eq 0 ]
-        then
-		echo PASSED
-            	let "nSuccesfulTests=$nSuccesfulTests+1"
-		nStrResult=$nStrResult" 1"
-	else
-		echo FAILED
-		nStrResult=$nStrResult" 0"
-fi
-
-echo DIVERS.1
-let "nTestCount=$nTestCount+1"
-./$1 < divers.1.in > temp1.txt
-grep -v '^#' temp1.txt > temp2.txt
-diff -wB divers.1.out temp2.txt
-if [ $? -eq 0 ]
-        then
-		echo PASSED
-            	let "nSuccesfulTests=$nSuccesfulTests+1"
-		nStrResult=$nStrResult" 1"
-	else
-		echo FAILED
-		nStrResult=$nStrResult" 0"
-fi
-
-echo DIVERS.2
-let "nTestCount=$nTestCount+1"
-./$1 < divers.2.in > temp1.txt
-grep -v '^#' temp1.txt > temp2.txt
-diff -wB divers.2.out temp2.txt
-if [ $? -eq 0 ]
-        then
-		echo PASSED
-            	let "nSuccesfulTests=$nSuccesfulTests+1"
-		nStrResult=$nStrResult" 1"
-	else
-		echo FAILED
-		nStrResult=$nStrResult" 0"
-fi
-
-echo DIVERS.3
-let "nTestCount=$nTestCount+1"
-./$1 < divers.3.in > temp1.txt
-grep -v '^#' temp1.txt > temp2.txt
-diff -wB divers.3.out temp2.txt
+diff -wB redo1.out temp2.txt
 if [ $? -eq 0 ]
         then
 		echo PASSED
